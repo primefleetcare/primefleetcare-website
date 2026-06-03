@@ -40,7 +40,8 @@
   },
   "areaServed": "Perth, Western Australia",
   "description": "Mobile truck wash specialists servicing fleet operators across Perth WA. We come to your yard — no downtime.",
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "taxID": "70690186586"
 }
 </script>
 
@@ -1313,7 +1314,7 @@
         <span class="footer-name">Prime Fleet Care</span>
       </div>
       <div class="footer-meta">
-        Perth WA · ABN: [ABN Placeholder] · &copy; <span id="year">2026</span> Prime Fleet Care
+        Perth WA · ABN: 70 690 186 586 · &copy; <span id="year">2026</span> Prime Fleet Care
       </div>
       <div class="footer-meta">
         <a href="tel:0449162476">0449 162 476</a> · <a href="mailto:info@primefleetcare.com.au">info@primefleetcare.com.au</a>
@@ -1350,10 +1351,14 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Form handling
+  // Form handling — posts to Formspree
+  // Sign up free at formspree.io, create a form, then replace YOUR_FORM_ID below
+  const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
   document.querySelectorAll('form[data-form]').forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const required = form.querySelectorAll('[required]');
       let valid = true;
       required.forEach(input => {
@@ -1366,16 +1371,36 @@
       });
       if (!valid) return;
 
-      const data = Object.fromEntries(new FormData(form));
-      console.log('Lead submitted:', data);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
 
-      const successHTML = `
-        <div class="form-success" role="status" aria-live="polite">
-          <h4>Thanks — we got it.</h4>
-          <p>We'll be in touch within one business day to lock in your free trial wash. Need it sooner? Call <a href="tel:0449162476" style="color: var(--orange); text-decoration: underline;">0449 162 476</a>.</p>
-        </div>
-      `;
-      form.outerHTML = successHTML;
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+
+        if (response.ok) {
+          const successHTML = `
+            <div class="form-success" role="status" aria-live="polite">
+              <h4>Thanks — we got it.</h4>
+              <p>We'll be in touch within one business day to lock in your free trial wash. Need it sooner? Call <a href="tel:0449162476" style="color: var(--orange); text-decoration: underline;">0449 162 476</a>.</p>
+            </div>
+          `;
+          form.outerHTML = successHTML;
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        const errMsg = form.querySelector('.form-error') || Object.assign(document.createElement('p'), { className: 'form-error', style: 'color:#FF6B00;font-size:0.9rem;margin-top:8px;' });
+        errMsg.textContent = 'Something went wrong. Please call us on 0449 162 476.';
+        if (!form.querySelector('.form-error')) form.appendChild(errMsg);
+      }
     });
   });
 </script>
