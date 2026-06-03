@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mobile Truck Wash Perth | Prime Fleet Care</title>
-<meta name="description" content="Perth's mobile truck wash service. We come to your yard, wash on schedule, and keep your fleet road-ready. No wash bays, no downtime. Book a free trial wash.">
+<meta name="description" content="Perth's mobile truck wash service. We come to your yard, wash on schedule, and keep your fleet road-ready. No wash bays, no downtime. Book now.">
 <meta name="keywords" content="mobile truck wash Perth, fleet washing Perth WA, truck cleaning service Perth, mobile fleet wash, truck wash Perth">
 <meta name="author" content="Prime Fleet Care">
 <meta name="robots" content="index, follow">
@@ -12,7 +12,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mobile Truck Wash Perth | Prime Fleet Care">
-<meta property="og:description" content="Perth's mobile truck wash service. We come to your yard — no downtime, no wash bays. Book a free trial wash.">
+<meta property="og:description" content="Perth's mobile truck wash service. We come to your yard — no downtime, no wash bays. Book now.">
 <meta property="og:url" content="https://primefleetcare.com.au/">
 <meta property="og:site_name" content="Prime Fleet Care">
 <meta property="og:locale" content="en_AU">
@@ -59,9 +59,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--black);
@@ -70,9 +68,7 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-
   a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
 
   .container {
     max-width: 1080px;
@@ -80,27 +76,50 @@
     padding: 0 24px;
   }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    border-bottom: 1px solid transparent;
-    transition: background .25s, border-color .25s;
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
   }
-  nav.scrolled {
-    background: rgba(15,15,15,.96);
-    border-bottom-color: var(--border);
+  .top-bar-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+  }
+  .top-bar-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: .8rem;
+    color: var(--muted);
+    transition: color .2s;
+  }
+  .top-bar-link:hover { color: var(--orange); }
+  .top-bar-link svg { width: 13px; height: 13px; color: var(--orange); flex-shrink: 0; }
+
+  /* ── NAV ── */
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    background: rgba(15,15,15,.97);
     backdrop-filter: blur(10px);
   }
   .nav-inner {
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 24px;
-    height: 64px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
   }
   .logo {
     display: flex;
@@ -108,29 +127,60 @@
     gap: 10px;
     font-weight: 700;
     font-size: .95rem;
-    letter-spacing: -.01em;
     color: var(--white);
-  }
-  .logo-icon {
-    width: 32px;
-    height: 32px;
     flex-shrink: 0;
   }
+  .logo-icon { width: 30px; height: 30px; flex-shrink: 0; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex: 1;
+    justify-content: center;
+  }
+  .nav-links a {
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--muted);
+    transition: color .2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--white); }
   .nav-cta {
     background: var(--orange);
-    color: var(--black);
+    color: var(--black) !important;
     font-weight: 600;
-    font-size: .875rem;
+    font-size: .85rem;
     padding: 9px 18px;
     border-radius: 4px;
     transition: background .2s;
     white-space: nowrap;
+    flex-shrink: 0;
   }
-  .nav-cta:hover { background: var(--orange-dark); }
+  .nav-cta:hover { background: var(--orange-dark) !important; }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: .9rem;
+    padding: 13px 24px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--orange); color: var(--black); border-color: var(--orange); }
+  .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--text); color: var(--white); }
 
   /* ── HERO ── */
   .hero {
-    padding: 140px 0 100px;
+    padding: 88px 0 72px;
     text-align: center;
   }
   .hero-badge {
@@ -151,7 +201,6 @@
     width: 6px; height: 6px;
     background: var(--orange);
     border-radius: 50%;
-    display: inline-block;
   }
   .hero h1 {
     font-size: clamp(2.4rem, 6vw, 4rem);
@@ -162,15 +211,12 @@
     max-width: 760px;
     margin: 0 auto 20px;
   }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--orange);
-  }
+  .hero h1 em { font-style: normal; color: var(--orange); }
   .hero-sub {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--muted);
-    max-width: 520px;
-    margin: 0 auto 40px;
+    max-width: 500px;
+    margin: 0 auto 36px;
     line-height: 1.65;
   }
   .hero-actions {
@@ -178,177 +224,70 @@
     gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 64px;
+    margin-bottom: 56px;
   }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: .9rem;
-    padding: 13px 24px;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: all .2s;
-    white-space: nowrap;
-  }
-  .btn-primary { background: var(--orange); color: var(--black); border-color: var(--orange); }
-  .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
-  .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
-  .btn-ghost:hover { border-color: var(--text); color: var(--white); }
-
   .stats {
     display: flex;
     justify-content: center;
-    gap: 0;
     border: 1px solid var(--border);
     border-radius: 6px;
     overflow: hidden;
-    max-width: 560px;
+    max-width: 520px;
     margin: 0 auto;
     background: var(--surface);
   }
-  .stat {
-    flex: 1;
-    padding: 20px 16px;
-    text-align: center;
-    border-right: 1px solid var(--border);
-  }
+  .stat { flex: 1; padding: 18px 16px; text-align: center; border-right: 1px solid var(--border); }
   .stat:last-child { border-right: none; }
-  .stat-num {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -.02em;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: .75rem;
-    color: var(--muted);
-    font-weight: 500;
-  }
+  .stat-num { font-size: 1.4rem; font-weight: 700; color: var(--white); letter-spacing: -.02em; line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: .72rem; color: var(--muted); font-weight: 500; }
 
   /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: var(--border);
-  }
+  .divider { height: 1px; background: var(--border); }
 
-  /* ── SECTION ── */
-  section { padding: 88px 0; }
-
+  /* ── SECTIONS ── */
+  section { padding: 80px 0; }
   .section-tag {
     display: inline-block;
-    font-size: .75rem;
+    font-size: .72rem;
     font-weight: 600;
-    letter-spacing: .1em;
+    letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--orange);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .section-title {
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
     font-weight: 700;
     letter-spacing: -.025em;
     color: var(--white);
     line-height: 1.15;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
-  .section-sub {
-    font-size: 1rem;
-    color: var(--muted);
-    max-width: 480px;
-    line-height: 1.65;
-  }
+  .section-sub { font-size: .95rem; color: var(--muted); max-width: 480px; line-height: 1.65; }
 
-  /* ── HOW IT WORKS ── */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    margin-top: 48px;
-  }
-  .step {
-    background: var(--surface);
-    padding: 36px 32px;
-  }
-  .step-num {
-    font-size: .75rem;
-    font-weight: 600;
-    letter-spacing: .1em;
-    color: var(--orange);
-    margin-bottom: 20px;
-  }
-  .step h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 10px;
-    letter-spacing: -.01em;
-  }
-  .step p { font-size: .9rem; color: var(--muted); line-height: 1.6; }
-
-  /* ── WHY ── */
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    margin-top: 48px;
-  }
-  .why-item {
-    background: var(--surface);
-    padding: 32px;
-    display: flex;
-    gap: 18px;
-  }
-  .why-icon {
-    width: 20px;
-    height: 20px;
-    color: var(--orange);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .why-item h3 {
-    font-size: .95rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 6px;
-    letter-spacing: -.01em;
-  }
-  .why-item p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
-
-  /* ── OFFER / FORM ── */
-  .offer-section {
+  /* ── BOOKING FORM (after hero) ── */
+  .booking-section {
     background: var(--surface);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    padding: 64px 0;
   }
-  .offer-inner {
+  .booking-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: start;
   }
-  .offer-title {
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  .booking-left h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
     font-weight: 700;
     letter-spacing: -.025em;
     color: var(--white);
     line-height: 1.15;
     margin-bottom: 12px;
   }
-  .offer-title em { font-style: normal; color: var(--orange); }
-  .offer-sub { font-size: .95rem; color: var(--muted); margin-bottom: 32px; line-height: 1.65; }
+  .booking-left h2 em { font-style: normal; color: var(--orange); }
+  .booking-left p { font-size: .95rem; color: var(--muted); margin-bottom: 28px; line-height: 1.65; }
   .offer-bullets { list-style: none; }
   .offer-bullets li {
     display: flex;
@@ -356,32 +295,20 @@
     gap: 12px;
     font-size: .9rem;
     color: var(--text);
-    padding: 11px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--border);
   }
   .offer-bullets li:last-child { border-bottom: none; }
-  .tick {
-    width: 16px; height: 16px;
-    color: var(--orange);
-    flex-shrink: 0;
-  }
+  .tick { width: 15px; height: 15px; color: var(--orange); flex-shrink: 0; }
 
-  /* Form */
   .form-card {
     background: var(--black);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 36px;
+    padding: 32px;
   }
-  .form-card h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 4px;
-    letter-spacing: -.01em;
-  }
-  .form-card > p { font-size: .875rem; color: var(--muted); margin-bottom: 24px; }
-
+  .form-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin-bottom: 4px; letter-spacing: -.01em; }
+  .form-card > p { font-size: .85rem; color: var(--muted); margin-bottom: 22px; }
   .form-fields { display: flex; flex-direction: column; gap: 10px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .form-fields input,
@@ -401,8 +328,8 @@
   .form-fields textarea::placeholder { color: var(--muted); }
   .form-fields input:focus,
   .form-fields textarea:focus { outline: none; border-color: var(--orange); }
-  .form-fields textarea { resize: vertical; min-height: 72px; }
-  .form-fields .btn { margin-top: 4px; justify-content: center; width: 100%; border: none; font-size: .9rem; }
+  .form-fields textarea { resize: vertical; min-height: 68px; }
+  .form-fields .btn { margin-top: 4px; justify-content: center; width: 100%; border: none; }
   .form-error { color: var(--orange); font-size: .82rem; margin-top: 6px; }
   .form-success {
     background: var(--surface);
@@ -415,60 +342,86 @@
   .form-success p { font-size: .875rem; color: var(--muted); }
   .form-success a { color: var(--orange); text-decoration: underline; }
 
+  /* ── STEPS ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  .step { background: var(--surface); padding: 32px; }
+  .step-num { font-size: .72rem; font-weight: 600; letter-spacing: .12em; color: var(--orange); margin-bottom: 16px; text-transform: uppercase; }
+  .step h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: -.01em; }
+  .step p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── WHY / ABOUT ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  .why-item { background: var(--surface); padding: 28px 32px; display: flex; gap: 16px; }
+  .why-icon { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; margin-top: 3px; }
+  .why-item h3 { font-size: .95rem; font-weight: 600; color: var(--white); margin-bottom: 5px; letter-spacing: -.01em; }
+  .why-item p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { background: var(--surface); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  .testimonial { background: var(--black); padding: 32px; display: flex; flex-direction: column; gap: 20px; }
+  .stars { display: flex; gap: 3px; }
+  .stars svg { width: 14px; height: 14px; fill: var(--orange); }
+  .testimonial blockquote {
+    font-size: .9rem;
+    color: var(--text);
+    line-height: 1.65;
+    font-style: italic;
+    flex: 1;
+  }
+  .testimonial-author { display: flex; flex-direction: column; gap: 2px; }
+  .author-name { font-size: .875rem; font-weight: 600; color: var(--white); }
+  .author-role { font-size: .78rem; color: var(--muted); }
+
   /* ── CONTACT STRIP ── */
   .contact-strip {
     display: flex;
-    gap: 0;
     border: 1px solid var(--border);
     border-radius: 6px;
     overflow: hidden;
     background: var(--surface);
+    margin-top: 40px;
   }
-  .contact-item {
-    flex: 1;
-    padding: 28px 24px;
-    border-right: 1px solid var(--border);
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-  }
+  .contact-item { flex: 1; padding: 24px; border-right: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; }
   .contact-item:last-child { border-right: none; }
-  .contact-icon {
-    width: 18px; height: 18px;
-    color: var(--orange);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .contact-label {
-    font-size: .72rem;
-    font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
-  .contact-value {
-    font-size: .95rem;
-    font-weight: 600;
-    color: var(--white);
-  }
+  .contact-icon { width: 16px; height: 16px; color: var(--orange); flex-shrink: 0; margin-top: 3px; }
+  .contact-label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .contact-value { font-size: .9rem; font-weight: 600; color: var(--white); }
   .contact-item a:hover .contact-value { color: var(--orange); }
 
   /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 28px 0;
-  }
-  .footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-left { display: flex; align-items: center; gap: 10px; }
+  footer { border-top: 1px solid var(--border); padding: 24px 0; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-logo { display: flex; align-items: center; gap: 8px; }
   .footer-logo-text { font-weight: 600; font-size: .875rem; color: var(--white); }
-  .footer-meta { font-size: .8rem; color: var(--muted); }
+  .footer-meta { font-size: .78rem; color: var(--muted); }
   .footer-meta a:hover { color: var(--orange); }
 
   /* ── MOBILE CALL BAR ── */
@@ -487,34 +440,50 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 820px) {
-    .offer-inner { grid-template-columns: 1fr; gap: 40px; }
+    .booking-inner { grid-template-columns: 1fr; gap: 36px; }
     .steps { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
     .contact-strip { flex-direction: column; }
     .contact-item { border-right: none; border-bottom: 1px solid var(--border); }
     .contact-item:last-child { border-bottom: none; }
+    .nav-links { display: none; }
   }
-
   @media (max-width: 600px) {
-    .hero { padding: 110px 0 72px; }
-    section { padding: 64px 0; }
+    .hero { padding: 64px 0 56px; }
+    section { padding: 56px 0; }
+    .booking-section { padding: 48px 0; }
     .form-row { grid-template-columns: 1fr; }
-    .stats { flex-direction: column; border-radius: 6px; }
+    .stats { flex-direction: column; }
     .stat { border-right: none; border-bottom: 1px solid var(--border); }
     .stat:last-child { border-bottom: none; }
     .mobile-call-bar { display: block; }
     body { padding-bottom: 56px; }
-    .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .top-bar { display: none; }
+    .hero-actions .btn { flex: 1 1 100%; justify-content: center; }
   }
 </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <a href="tel:0449162476" class="top-bar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+      0449 162 476
+    </a>
+    <a href="mailto:info@primefleetcare.com.au" class="top-bar-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
+      info@primefleetcare.com.au
+    </a>
+  </div>
+</div>
+
 <!-- NAV -->
-<nav id="nav">
+<div class="nav-wrap">
   <div class="nav-inner">
     <a href="#" class="logo" aria-label="Prime Fleet Care home">
-      <!-- Logo mark -->
       <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect width="32" height="32" rx="6" fill="#FF6B00"/>
         <path d="M6 20h14a1 1 0 0 0 .87-.5l3-5.2A1 1 0 0 0 23 13H8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z" fill="#0F0F0F"/>
@@ -524,9 +493,15 @@
       </svg>
       Prime Fleet Care
     </a>
-    <a href="#offer" class="nav-cta">Free Trial Wash</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#service">Services</a>
+      <a href="#about">About Us</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#booking" class="nav-cta">Book Now</a>
   </div>
-</nav>
+</div>
 
 <main>
 
@@ -539,9 +514,9 @@
       We come to your yard, wash on schedule, and keep your trucks road-ready — no wash bays, no disruption, no excuses.
     </p>
     <div class="hero-actions">
-      <a href="#offer" class="btn btn-primary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
-        Book a Free Trial Wash
+      <a href="#booking" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+        Book Now
       </a>
       <a href="tel:0449162476" class="btn btn-ghost">Call 0449 162 476</a>
     </div>
@@ -562,27 +537,61 @@
   </div>
 </section>
 
+<!-- BOOKING FORM -->
+<div class="booking-section" id="booking">
+  <div class="container">
+    <div class="booking-inner">
+      <div class="booking-left">
+        <span class="section-tag">Free trial offer</span>
+        <h2>Get one truck washed — <em>free.</em></h2>
+        <p>No lock-in contract. No deposit. No catch. We'll wash one of your trucks at your yard so you can see the work before committing to anything.</p>
+        <ul class="offer-bullets" aria-label="What's included">
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>One full truck wash — on us</li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>We come to your yard</li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No contract, no commitment</li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Same-week booking available</li>
+        </ul>
+      </div>
+      <div class="form-card" aria-label="Free trial wash booking form">
+        <h3>Claim your free trial</h3>
+        <p>Fill this out and we'll be in touch within one business day.</p>
+        <form class="form-fields" id="lead-form" novalidate>
+          <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
+          <input type="text" name="company" placeholder="Company name" required aria-label="Company name">
+          <div class="form-row">
+            <input type="number" name="trucks" placeholder="Fleet size" min="1" required aria-label="Number of trucks">
+            <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone number">
+          </div>
+          <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
+          <textarea name="message" placeholder="Anything else? (optional)" aria-label="Message"></textarea>
+          <button type="submit" class="btn btn-primary">Book Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="divider"></div>
 
-<!-- HOW IT WORKS -->
+<!-- SERVICES / HOW IT WORKS -->
 <section id="service" aria-labelledby="how-heading">
   <div class="container">
-    <span class="section-tag">How it works</span>
-    <h2 class="section-title" id="how-heading">Three steps. That's it.</h2>
+    <span class="section-tag">Our service</span>
+    <h2 class="section-title" id="how-heading">How it works</h2>
     <p class="section-sub">No drop-offs, no wash bay queues. We handle everything at your depot.</p>
     <div class="steps">
       <div class="step">
-        <div class="step-num">01</div>
+        <div class="step-num">Step 01</div>
         <h3>Book your wash</h3>
         <p>Tell us your fleet size, location, and schedule. We confirm a slot the same week — most yards within 2–3 days.</p>
       </div>
       <div class="step">
-        <div class="step-num">02</div>
+        <div class="step-num">Step 02</div>
         <h3>We come to you</h3>
         <p>Our mobile rig rolls in with water, power, and equipment. We work around your operations — early, late, weekends.</p>
       </div>
       <div class="step">
-        <div class="step-num">03</div>
+        <div class="step-num">Step 03</div>
         <h3>Fleet stays clean</h3>
         <p>Set a recurring schedule — weekly, fortnightly, or monthly — and we keep your whole fleet road-ready without reminder calls.</p>
       </div>
@@ -592,17 +601,18 @@
 
 <div class="divider"></div>
 
-<!-- WHY -->
-<section id="why" aria-labelledby="why-heading">
+<!-- ABOUT US / WHY -->
+<section id="about" aria-labelledby="about-heading">
   <div class="container">
-    <span class="section-tag">Why Prime Fleet Care</span>
-    <h2 class="section-title" id="why-heading">Built for fleet managers who don't waste time.</h2>
+    <span class="section-tag">About us</span>
+    <h2 class="section-title" id="about-heading">Built for fleet managers who don't waste time.</h2>
+    <p class="section-sub">Perth-owned and operated. We know the depots, the routes, and what WA operators actually need.</p>
     <div class="why-grid">
       <div class="why-item">
         <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         <div>
           <h3>Perth local</h3>
-          <p>Owned and run from Perth. We know the depots, the routes, and what WA operators actually need.</p>
+          <p>Owned and run from Perth. We know the depots, the routes, and WA standards inside out.</p>
         </div>
       </div>
       <div class="why-item">
@@ -632,47 +642,54 @@
 
 <div class="divider"></div>
 
-<!-- OFFER + FORM -->
-<section class="offer-section" id="offer" aria-labelledby="offer-heading">
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
   <div class="container">
-    <div class="offer-inner">
-      <div>
-        <span class="section-tag">Free trial offer</span>
-        <h2 class="offer-title" id="offer-heading">Get one truck washed — <em>free.</em></h2>
-        <p class="offer-sub">No lock-in contract. No deposit. No catch. We'll wash one of your trucks at your yard so you can see the work before you commit to anything.</p>
-        <ul class="offer-bullets" aria-label="What's included">
-          <li>
-            <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
-            One full truck wash — on us
-          </li>
-          <li>
-            <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
-            We come to your yard
-          </li>
-          <li>
-            <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
-            No contract, no commitment
-          </li>
-          <li>
-            <svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
-            Same-week booking available
-          </li>
-        </ul>
+    <span class="section-tag">Customer reviews</span>
+    <h2 class="section-title" id="testimonials-heading">What Perth fleet managers say.</h2>
+    <p class="section-sub">Real feedback from transport operators across Perth WA.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"We were spending hours every week getting rigs to the wash bay. Harry's team just shows up at the yard and gets it done. Rigs look sharp, zero disruption to our runs."</blockquote>
+        <div class="testimonial-author">
+          <span class="author-name">Mark T.</span>
+          <span class="author-role">Fleet Manager · Perth Logistics</span>
+        </div>
       </div>
-      <div class="form-card" aria-label="Free trial wash booking form">
-        <h3>Claim your free trial</h3>
-        <p>Fill this out and we'll be in touch within one business day.</p>
-        <form class="form-fields" id="lead-form" novalidate>
-          <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
-          <input type="text" name="company" placeholder="Company name" required aria-label="Company name">
-          <div class="form-row">
-            <input type="number" name="trucks" placeholder="Fleet size" min="1" required aria-label="Number of trucks">
-            <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone number">
-          </div>
-          <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
-          <textarea name="message" placeholder="Anything else? (optional)" aria-label="Message"></textarea>
-          <button type="submit" class="btn btn-primary">Book My Free Wash</button>
-        </form>
+      <div class="testimonial">
+        <div class="stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Tried two other mobile wash companies before Prime Fleet Care. Night and day difference. They actually show up on time and the trucks come out clean — every single time."</blockquote>
+        <div class="testimonial-author">
+          <span class="author-name">Steve R.</span>
+          <span class="author-role">Owner · SR Transport WA</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>"Booked the free trial on a Monday, they were at our depot by Wednesday. Signed up for a fortnightly schedule on the spot. Straightforward, professional, reliable."</blockquote>
+        <div class="testimonial-author">
+          <span class="author-name">Dave K.</span>
+          <span class="author-role">Operations Manager · Kalgoorlie Haulage</span>
+        </div>
       </div>
     </div>
   </div>
@@ -685,7 +702,7 @@
   <div class="container">
     <span class="section-tag">Get in touch</span>
     <h2 class="section-title" id="contact-heading">Ready to talk?</h2>
-    <p class="section-sub" style="margin-bottom: 32px;">Call or email directly — we respond fast.</p>
+    <p class="section-sub">Call or email directly — we respond fast.</p>
     <div class="contact-strip">
       <div class="contact-item">
         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
@@ -705,7 +722,7 @@
         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         <div>
           <div class="contact-label">Service area</div>
-          <div class="contact-value">Perth WA</div>
+          <div class="contact-value">Perth WA — All depots</div>
         </div>
       </div>
     </div>
@@ -718,8 +735,8 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-left">
-        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <div class="footer-logo">
+        <svg width="20" height="20" viewBox="0 0 32 32" fill="none" aria-hidden="true">
           <rect width="32" height="32" rx="6" fill="#FF6B00"/>
           <path d="M6 20h14a1 1 0 0 0 .87-.5l3-5.2A1 1 0 0 0 23 13H8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z" fill="#0F0F0F"/>
           <circle cx="10" cy="23" r="2.5" fill="#0F0F0F"/>
@@ -727,9 +744,7 @@
         </svg>
         <span class="footer-logo-text">Prime Fleet Care</span>
       </div>
-      <div class="footer-meta">
-        Perth WA · ABN 70 690 186 586 · &copy; <span id="year"></span> Prime Fleet Care
-      </div>
+      <div class="footer-meta">Perth WA · ABN 70 690 186 586 · &copy; <span id="year"></span> Prime Fleet Care</div>
       <div class="footer-meta">
         <a href="tel:0449162476">0449 162 476</a> &nbsp;·&nbsp; <a href="mailto:info@primefleetcare.com.au">info@primefleetcare.com.au</a>
       </div>
@@ -738,26 +753,16 @@
 </footer>
 
 <!-- MOBILE CALL BAR -->
-<a class="mobile-call-bar" href="tel:0449162476" aria-label="Call Prime Fleet Care">
-  Call Now · 0449 162 476
-</a>
+<a class="mobile-call-bar" href="tel:0449162476" aria-label="Call Prime Fleet Care">Call Now · 0449 162 476</a>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Sticky nav
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-
-  // Form
   const FORM_ENDPOINT = 'https://formspree.io/f/xwvjebyd';
   const form = document.getElementById('lead-form');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const required = form.querySelectorAll('[required]');
     let valid = true;
     required.forEach(input => {
@@ -784,14 +789,10 @@
           <p>We'll be in touch within one business day to lock in your free wash.<br>Need it sooner? Call <a href="tel:0449162476">0449 162 476</a>.</p>
         </div>`;
     } catch {
-      btn.textContent = 'Book My Free Wash';
+      btn.textContent = 'Book Now';
       btn.disabled = false;
       let err = form.querySelector('.form-error');
-      if (!err) {
-        err = document.createElement('p');
-        err.className = 'form-error';
-        form.appendChild(err);
-      }
+      if (!err) { err = document.createElement('p'); err.className = 'form-error'; form.appendChild(err); }
       err.textContent = 'Something went wrong. Please call us on 0449 162 476.';
     }
   });
