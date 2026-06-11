@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Security policy: GitHub Pages can't set HTTP headers, so this is enforced client-side. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Mobile Truck Wash Perth | Prime Fleet Care</title>
 <meta name="description" content="Perth's mobile truck wash service. We come to your yard, wash on schedule, and keep your fleet road-ready. No wash bays, no downtime. Book now.">
 <meta name="keywords" content="mobile truck wash Perth, fleet washing Perth WA, truck cleaning service Perth, mobile fleet wash, truck wash Perth">
@@ -567,6 +570,7 @@
           </div>
           <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
           <textarea name="message" placeholder="Anything else? (optional)" aria-label="Message"></textarea>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
           <button type="submit" class="btn btn-primary">Book Now</button>
         </form>
       </div>
