@@ -87,7 +87,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --orange: #F04E00; --orange-dark: #D44300; --black: #18181A; --surface: #222224;
+    --orange: #D94B00; --orange-dark: #B83E00; --black: #18181A; --surface: #222224;
     --border: #2C2C2E; --text: #E8E8E8; --muted: #888; --white: #fff;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -185,7 +185,7 @@
 
   /* consent */
   .consent-row { display: flex; align-items: flex-start; gap: 12px; }
-  .consent-row input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; accent-color: var(--orange); cursor: pointer; }
+  .consent-row input[type="checkbox"] { width: 20px; height: 20px; min-width: 20px; flex-shrink: 0; margin-top: 2px; accent-color: var(--orange); cursor: pointer; }
   .consent-row label { font-size: .85rem; color: var(--muted); line-height: 1.5; cursor: pointer; }
   .consent-row label span { color: var(--orange); }
 
@@ -390,43 +390,44 @@
   const form = document.getElementById('review-form');
   const errorMsg = document.getElementById('form-error');
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
     errorMsg.style.display = 'none';
+    errorMsg.textContent = 'Please fill in your name, review, star rating, and tick the "I agree" checkbox.';
 
-    const name = form.querySelector('[name="name"]').value.trim();
-    const review = form.querySelector('[name="review"]').value.trim();
-    const rating = form.querySelector('[name="rating"]:checked');
-    const consent = form.querySelector('[name="consent"]').checked;
+    var name    = form.querySelector('[name="name"]').value.trim();
+    var review  = form.querySelector('[name="review"]').value.trim();
+    var rating  = form.querySelector('[name="rating"]:checked');
+    var consent = form.querySelector('[name="consent"]').checked;
 
     if (!name || !review || !rating || !consent) {
       errorMsg.style.display = 'block';
+      errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
-    const btn = form.querySelector('button[type="submit"]');
+    var btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(form)
-      });
-      if (!res.ok) throw new Error();
-      form.closest('main').querySelector('#submit').insertAdjacentHTML('afterend', `
-        <div class="form-success" role="status" aria-live="polite">
-          <h3>Thanks — we got it.</h3>
-          <p>We appreciate you taking the time to leave a review. It means a lot to the team.</p>
-        </div>`);
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(form)
+    }).then(function(res) {
+      if (!res.ok) throw new Error('not ok');
+      form.closest('main').querySelector('#submit').insertAdjacentHTML('afterend',
+        '<div class="form-success" role="status" aria-live="polite">' +
+        '<h3>Thanks — we got it.</h3>' +
+        '<p>We appreciate you taking the time to leave a review. It means a lot to the team.</p>' +
+        '</div>');
       form.remove();
-    } catch {
+    }).catch(function(err) {
       btn.textContent = 'Submit my review';
       btn.disabled = false;
       errorMsg.textContent = 'Something went wrong. Please try again or email info@primefleetcare.com.au.';
       errorMsg.style.display = 'block';
-    }
+    });
   });
 </script>
 </body>
