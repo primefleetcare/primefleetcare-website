@@ -19,10 +19,15 @@
 <meta property="og:url" content="https://primefleetcare.com.au/">
 <meta property="og:site_name" content="Prime Fleet Care">
 <meta property="og:locale" content="en_AU">
+<meta property="og:image" content="https://primefleetcare.com.au/assets/brand/social/avatar_black_1080.png">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Prime Fleet Care — Mobile Truck Wash Perth">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mobile Truck Wash Perth | Prime Fleet Care">
 <meta name="twitter:description" content="Perth's mobile truck wash service. We come to your yard — no downtime, no wash bays.">
+<meta name="twitter:image" content="https://primefleetcare.com.au/assets/brand/social/avatar_black_1080.png">
 
 <script type="application/ld+json">
 {
@@ -32,16 +37,44 @@
   "telephone": "+61449162476",
   "email": "info@primefleetcare.com.au",
   "url": "https://primefleetcare.com.au",
+  "image": "https://primefleetcare.com.au/assets/brand/social/avatar_black_1080.png",
+  "logo": "https://primefleetcare.com.au/assets/brand/wordmark/stacked_orange.png",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Perth",
     "addressRegion": "WA",
     "addressCountry": "AU"
   },
-  "areaServed": "Perth, Western Australia",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -31.9505,
+    "longitude": 115.8605
+  },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": -31.9505,
+      "longitude": 115.8605
+    },
+    "geoRadius": "80000"
+  },
+  "serviceType": "Mobile truck washing and fleet detailing",
   "description": "Mobile truck wash specialists servicing fleet operators across Perth WA. We come to your yard — no downtime.",
   "priceRange": "$$",
-  "taxID": "70690186586"
+  "taxID": "70690186586",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "06:00",
+      "closes": "20:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/primefleetcare",
+    "https://www.instagram.com/primefleetcare"
+  ]
 }
 </script>
 
@@ -225,7 +258,7 @@
     max-width: 760px;
     margin: 0 auto 20px;
   }
-  .hero h1 em { font-style: normal; color: var(--orange); }
+  .hero h1 .accent { color: var(--orange); }
   .hero-sub {
     font-size: 1.05rem;
     color: var(--muted);
@@ -300,7 +333,7 @@
     line-height: 1.15;
     margin-bottom: 12px;
   }
-  .booking-left h2 em { font-style: normal; color: var(--orange); }
+  .booking-left h2 .accent { color: var(--orange); }
   .booking-left p { font-size: .95rem; color: var(--muted); margin-bottom: 28px; line-height: 1.65; }
   .offer-bullets { list-style: none; }
   .offer-bullets li {
@@ -515,7 +548,7 @@
 <section class="hero" aria-labelledby="hero-heading">
   <div class="container">
     <div class="hero-badge">Perth WA · Mobile Truck Wash</div>
-    <h1 id="hero-heading">Your fleet stays clean.<br><em>Zero downtime.</em></h1>
+    <h1 id="hero-heading">Your fleet stays clean.<br><span class="accent">Zero downtime.</span></h1>
     <p class="hero-sub">
       We come to your yard, wash on schedule, and keep your trucks road-ready — no wash bays, no disruption, no excuses.
     </p>
@@ -549,7 +582,7 @@
     <div class="booking-inner">
       <div class="booking-left">
         <span class="section-tag">Free trial offer</span>
-        <h2>Get one truck washed — <em>free.</em></h2>
+        <h2>Get one truck washed — <span class="accent">free.</span></h2>
         <p>No lock-in contract. No deposit. No catch. We'll wash one of your trucks at your yard so you can see the work before committing to anything.</p>
         <ul class="offer-bullets" aria-label="What's included">
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>One full truck wash — on us</li>
