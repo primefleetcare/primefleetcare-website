@@ -328,31 +328,7 @@
   .photo-banner-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(24,24,26,0.55);
-  }
-  .photo-banner-text {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-    padding: 0 24px;
-  }
-  .photo-banner-text h2 {
-    font-family: 'Big Shoulders Display', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: -.025em;
-    line-height: 1.1;
-  }
-  .photo-banner-text p {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.75);
-    max-width: 480px;
+    background: rgba(24,24,26,0.28);
   }
   @media (max-width: 600px) {
     .photo-banner { height: 280px; }
@@ -466,6 +442,38 @@
   .why-icon { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; margin-top: 3px; }
   .why-item h3 { font-size: .95rem; font-weight: 600; color: var(--white); margin-bottom: 5px; letter-spacing: -.01em; }
   .why-item p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── CAROUSEL ── */
+  .carousel { position: relative; margin-top: 40px; }
+  .carousel-overflow {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--border);
+  }
+  .carousel-track { display: flex; transition: transform 250ms ease; will-change: transform; }
+  .carousel-slide { flex: 0 0 100%; display: grid; gap: 1px; min-width: 0; }
+  .carousel-slide.two-up { grid-template-columns: 1fr 1fr; }
+  .carousel-controls {
+    display: flex; justify-content: center; align-items: center;
+    gap: 14px; margin-top: 20px;
+  }
+  .c-btn {
+    background: none; border: 1px solid var(--border); color: var(--muted);
+    width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .2s, color .2s; flex-shrink: 0; padding: 0;
+  }
+  .c-btn:hover { border-color: var(--orange); color: var(--orange); }
+  .c-btn:disabled { opacity: .25; cursor: default; pointer-events: none; }
+  .c-dots { display: flex; gap: 6px; align-items: center; }
+  .c-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--muted);
+    opacity: .35; cursor: pointer; transition: background .2s, width .2s, opacity .2s;
+    border: none; padding: 0; flex-shrink: 0; outline: none;
+  }
+  .c-dot.on { background: var(--orange); width: 20px; border-radius: 3px; opacity: 1; }
+  @media (max-width: 640px) { .carousel-slide.two-up { grid-template-columns: 1fr; } }
 
   /* ── TESTIMONIALS ── */
   .testimonials-section { background: var(--surface); }
@@ -626,10 +634,6 @@
 <div class="photo-banner" role="img" aria-label="Prime Fleet Care crew pressure washing a green tanker at a Perth depot">
   <img src="/assets/truck.jpg" alt="Prime Fleet Care crew washing a tanker at a Perth depot — mobile truck wash WA" loading="lazy">
   <div class="photo-banner-overlay"></div>
-  <div class="photo-banner-text">
-    <h2>We come to your yard.<br><span style="color:var(--orange)">You don't move a truck.</span></h2>
-    <p>Perth's mobile truck wash specialists — fully equipped, on schedule, every time.</p>
-  </div>
 </div>
 
 <!-- BOOKING FORM -->
@@ -675,62 +679,88 @@
     <span class="section-tag">What we do</span>
     <h2 class="section-title" id="service-heading">Mobile truck washing — <span class="accent">at your depot.</span></h2>
     <p class="section-sub">Full wash and detail service. We come to you with everything we need — no facilities required on your end.</p>
-    <div class="why-grid" style="grid-template-columns: repeat(2,1fr);">
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/></svg>
-        <div>
-          <h3>Exterior wash</h3>
-          <p>Full vehicle exterior — cab, body, trailer. We wash everything properly, not just a hose-down.</p>
+    <div class="carousel" id="services-carousel">
+      <div class="carousel-overflow">
+        <div class="carousel-track">
+          <div class="carousel-slide two-up">
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/></svg>
+              <div>
+                <h3>Exterior wash</h3>
+                <p>Full vehicle exterior — cab, body, trailer. We wash everything properly, not just a hose-down.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+              <div>
+                <h3>Full exterior detail</h3>
+                <p>Paint correction and protection applied after the wash. Leaves your fleet looking sharp and protected long-term.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide two-up">
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M8 12h8M12 8v8"/></svg>
+              <div>
+                <h3>Engine &amp; radiator degrease</h3>
+                <p>Heavy-duty degreasing for engine bays and radiators. Cuts through built-up grease and grime that causes overheating and corrosion.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="14" height="8" rx="1"/><path d="M16 11h4l2 3v3h-6"/><circle cx="7" cy="20" r="2"/><circle cx="19" cy="20" r="2"/></svg>
+              <div>
+                <h3>Underbody clean</h3>
+                <p>Full undercarriage wash. Removes mud, salt, and road grime that causes rust, corrosion, and hidden damage over time.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide two-up">
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <div>
+                <h3>Interior wipe &amp; vacuum</h3>
+                <p>Cab clean — surfaces wiped down and vacuumed out. Quick, thorough, and done at the yard so drivers aren't waiting around.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              <div>
+                <h3>Full interior detail</h3>
+                <p>Deep clean of the entire cab — seats, dash, door trims, floor. The kind of clean that makes a truck look new again.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide two-up">
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8zM5 19a2 2 0 100-4 2 2 0 000 4zM19 19a2 2 0 100-4 2 2 0 000 4z"/></svg>
+              <div>
+                <h3>Trailer inside clean</h3>
+                <p>Interior wash for enclosed trailers. Gets rid of dust, residue, and odours — ready for your next load.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <div>
+                <h3>Ceramic sealant application</h3>
+                <p>Long-term paint protection applied after detailing. One application keeps your fleet cleaner longer and easier to maintain.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        <div>
-          <h3>Full exterior detail</h3>
-          <p>Paint correction and protection applied after the wash. Leaves your fleet looking sharp and protected long-term.</p>
+      <div class="carousel-controls">
+        <button class="c-btn c-prev" aria-label="Previous services" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="c-dots" role="tablist" aria-label="Services slides">
+          <button class="c-dot on" role="tab" aria-selected="true" aria-label="Slide 1 of 4"></button>
+          <button class="c-dot" role="tab" aria-selected="false" aria-label="Slide 2 of 4"></button>
+          <button class="c-dot" role="tab" aria-selected="false" aria-label="Slide 3 of 4"></button>
+          <button class="c-dot" role="tab" aria-selected="false" aria-label="Slide 4 of 4"></button>
         </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M8 12h8M12 8v8"/></svg>
-        <div>
-          <h3>Engine &amp; radiator degrease</h3>
-          <p>Heavy-duty degreasing for engine bays and radiators. Cuts through built-up grease and grime that causes overheating and corrosion.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="14" height="8" rx="1"/><path d="M16 11h4l2 3v3h-6"/><circle cx="7" cy="20" r="2"/><circle cx="19" cy="20" r="2"/></svg>
-        <div>
-          <h3>Underbody clean</h3>
-          <p>Full undercarriage wash. Removes mud, salt, and road grime that causes rust, corrosion, and hidden damage over time.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <div>
-          <h3>Interior wipe &amp; vacuum</h3>
-          <p>Cab clean — surfaces wiped down and vacuumed out. Quick, thorough, and done at the yard so drivers aren't waiting around.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        <div>
-          <h3>Full interior detail</h3>
-          <p>Deep clean of the entire cab — seats, dash, door trims, floor. The kind of clean that makes a truck look new again.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8zM5 19a2 2 0 100-4 2 2 0 000 4zM19 19a2 2 0 100-4 2 2 0 000 4z"/></svg>
-        <div>
-          <h3>Trailer inside clean</h3>
-          <p>Interior wash for enclosed trailers. Gets rid of dust, residue, and odours — ready for your next load.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div>
-          <h3>Ceramic sealant application</h3>
-          <p>Long-term paint protection applied after detailing. One application keeps your fleet cleaner longer and easier to maintain.</p>
-        </div>
+        <button class="c-btn c-next" aria-label="Next services">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -744,41 +774,64 @@
     <span class="section-tag">About us</span>
     <h2 class="section-title" id="about-heading">Built for fleet managers who don't waste time.</h2>
     <p class="section-sub">Perth-owned and operated. We know the depots, the routes, and what WA operators actually need.</p>
-    <div class="why-grid">
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        <div>
-          <h3>Perth local</h3>
-          <p>Owned and run from Perth. We know the depots, the routes, and WA standards inside out.</p>
+    <div class="carousel" id="about-carousel">
+      <div class="carousel-overflow">
+        <div class="carousel-track">
+          <div class="carousel-slide two-up">
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <div>
+                <h3>Perth local</h3>
+                <p>Owned and run from Perth. We know the depots, the routes, and WA standards inside out.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="14" height="8" rx="1"/><path d="M16 11h4l2 3v3h-6"/><circle cx="7" cy="20" r="2"/><circle cx="19" cy="20" r="2"/></svg>
+              <div>
+                <h3>Fully mobile</h3>
+                <p>We bring water, power, and gear. You don't move a truck or lift a finger.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide two-up">
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
+              <div>
+                <h3>Flexible scheduling</h3>
+                <p>Weekly, fortnightly, monthly — we work weekends and after-hours if you do.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+              <div>
+                <h3>Consistent results</h3>
+                <p>Same crew. Same standard. Every wash. No surprises, no excuses, no chasing.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <div>
+                <h3>Fleet discounts — 10+ vehicles</h3>
+                <p>Running a bigger fleet? We offer fleet pricing for operators with 10 or more vehicles. Ask us about fleet rates when you get in touch.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="14" height="8" rx="1"/><path d="M16 11h4l2 3v3h-6"/><circle cx="7" cy="20" r="2"/><circle cx="19" cy="20" r="2"/></svg>
-        <div>
-          <h3>Fully mobile</h3>
-          <p>We bring water, power, and gear. You don't move a truck or lift a finger.</p>
+      <div class="carousel-controls">
+        <button class="c-btn c-prev" aria-label="Previous" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="c-dots" role="tablist" aria-label="About slides">
+          <button class="c-dot on" role="tab" aria-selected="true" aria-label="Slide 1 of 3"></button>
+          <button class="c-dot" role="tab" aria-selected="false" aria-label="Slide 2 of 3"></button>
+          <button class="c-dot" role="tab" aria-selected="false" aria-label="Slide 3 of 3"></button>
         </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
-        <div>
-          <h3>Flexible scheduling</h3>
-          <p>Weekly, fortnightly, monthly — we work weekends and after-hours if you do.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-        <div>
-          <h3>Consistent results</h3>
-          <p>Same crew. Same standard. Every wash. No surprises, no excuses, no chasing.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        <div>
-          <h3>Fleet discounts — 10+ vehicles</h3>
-          <p>Running a bigger fleet? We offer fleet pricing for operators with 10 or more vehicles. Ask us about fleet rates when you get in touch.</p>
-        </div>
+        <button class="c-btn c-next" aria-label="Next">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -792,48 +845,71 @@
     <span class="section-tag">Customer reviews</span>
     <h2 class="section-title" id="testimonials-heading">What Perth fleet managers say.</h2>
     <p class="section-sub">Real feedback from transport operators across Perth WA.</p>
-    <div class="testimonials-grid">
-      <div class="testimonial">
-        <div class="stars" aria-label="5 stars">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <blockquote>"We were spending hours every week getting rigs to the wash bay. Harry's team just shows up at the yard and gets it done. Rigs look sharp, zero disruption to our runs."</blockquote>
-        <div class="testimonial-author">
-          <span class="author-name">Mark T.</span>
-          <span class="author-role">Fleet Manager · Perth Logistics</span>
+    <div class="carousel" id="testimonials-carousel">
+      <div class="carousel-overflow">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <div class="testimonial">
+              <div class="stars" aria-label="5 stars">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <blockquote>"We were spending hours every week getting rigs to the wash bay. Harry's team just shows up at the yard and gets it done. Rigs look sharp, zero disruption to our runs."</blockquote>
+              <div class="testimonial-author">
+                <span class="author-name">Mark T.</span>
+                <span class="author-role">Fleet Manager · Perth Logistics</span>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="testimonial">
+              <div class="stars" aria-label="5 stars">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <blockquote>"Tried two other mobile wash companies before Prime Fleet Care. Night and day difference. They actually show up on time and the trucks come out clean — every single time."</blockquote>
+              <div class="testimonial-author">
+                <span class="author-name">Steve R.</span>
+                <span class="author-role">Owner · SR Transport WA</span>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="testimonial">
+              <div class="stars" aria-label="5 stars">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <blockquote>"Booked on a Monday, they were at our depot by Wednesday. Signed up for a fortnightly schedule on the spot. Straightforward, professional, reliable."</blockquote>
+              <div class="testimonial-author">
+                <span class="author-name">Dave K.</span>
+                <span class="author-role">Operations Manager · Kalgoorlie Haulage</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="testimonial">
-        <div class="stars" aria-label="5 stars">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="carousel-controls">
+        <button class="c-btn c-prev" aria-label="Previous review" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="c-dots" role="tablist" aria-label="Testimonial slides">
+          <button class="c-dot on" role="tab" aria-selected="true" aria-label="Review 1 of 3"></button>
+          <button class="c-dot" role="tab" aria-selected="false" aria-label="Review 2 of 3"></button>
+          <button class="c-dot" role="tab" aria-selected="false" aria-label="Review 3 of 3"></button>
         </div>
-        <blockquote>"Tried two other mobile wash companies before Prime Fleet Care. Night and day difference. They actually show up on time and the trucks come out clean — every single time."</blockquote>
-        <div class="testimonial-author">
-          <span class="author-name">Steve R.</span>
-          <span class="author-role">Owner · SR Transport WA</span>
-        </div>
-      </div>
-      <div class="testimonial">
-        <div class="stars" aria-label="5 stars">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <blockquote>"Booked on a Monday, they were at our depot by Wednesday. Signed up for a fortnightly schedule on the spot. Straightforward, professional, reliable."</blockquote>
-        <div class="testimonial-author">
-          <span class="author-name">Dave K.</span>
-          <span class="author-role">Operations Manager · Kalgoorlie Haulage</span>
-        </div>
+        <button class="c-btn c-next" aria-label="Next review">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -975,6 +1051,45 @@
       err.textContent = 'Something went wrong. Please call us on 0449 162 476.';
     }
   });
+
+  // ── Carousels ──
+  (function () {
+    function initCarousel(el) {
+      var track = el.querySelector('.carousel-track');
+      var slides = el.querySelectorAll('.carousel-slide');
+      var dots   = el.querySelectorAll('.c-dot');
+      var prev   = el.querySelector('.c-prev');
+      var next   = el.querySelector('.c-next');
+      var cur = 0, total = slides.length;
+      if (total <= 1) return;
+
+      function go(n) {
+        cur = Math.max(0, Math.min(n, total - 1));
+        track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+        dots.forEach(function (d, i) {
+          d.classList.toggle('on', i === cur);
+          d.setAttribute('aria-selected', i === cur ? 'true' : 'false');
+        });
+        if (prev) prev.disabled = cur === 0;
+        if (next) next.disabled = cur === total - 1;
+      }
+
+      if (prev) prev.addEventListener('click', function () { go(cur - 1); });
+      if (next) next.addEventListener('click', function () { go(cur + 1); });
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+
+      // Touch swipe
+      var sx = 0;
+      el.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      el.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - sx;
+        if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+      });
+
+      go(0);
+    }
+    document.querySelectorAll('.carousel').forEach(initCarousel);
+  })();
 </script>
 
 </body>
