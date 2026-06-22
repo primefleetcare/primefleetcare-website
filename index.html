@@ -312,6 +312,52 @@
   }
   .section-sub { font-size: .95rem; color: var(--muted); max-width: 480px; line-height: 1.65; }
 
+  /* ── PHOTO BANNER ── */
+  .photo-banner {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+  }
+  .photo-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+  }
+  .photo-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(24,24,26,0.55);
+  }
+  .photo-banner-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 0 24px;
+  }
+  .photo-banner-text h2 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -.025em;
+    line-height: 1.1;
+  }
+  .photo-banner-text p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 480px;
+  }
+  @media (max-width: 600px) {
+    .photo-banner { height: 280px; }
+  }
+
   /* ── BOOKING FORM (after hero) ── */
   .booking-section {
     background: var(--surface);
@@ -576,23 +622,33 @@
   </div>
 </section>
 
+<!-- PHOTO BANNER -->
+<div class="photo-banner" role="img" aria-label="Prime Fleet Care technician pressure washing a truck at a Perth depot">
+  <img src="/assets/truck.jpg" alt="Mobile truck wash in progress — Prime Fleet Care Perth WA" loading="lazy">
+  <div class="photo-banner-overlay"></div>
+  <div class="photo-banner-text">
+    <h2>We come to your yard.<br><span style="color:var(--orange)">You don't move a truck.</span></h2>
+    <p>Perth's mobile truck wash specialists — fully equipped, on schedule, every time.</p>
+  </div>
+</div>
+
 <!-- BOOKING FORM -->
 <div class="booking-section" id="booking">
   <div class="container">
     <div class="booking-inner">
       <div class="booking-left">
-        <span class="section-tag">Free trial offer</span>
-        <h2>Get one truck washed — <span class="accent">free.</span></h2>
-        <p>No lock-in contract. No deposit. No catch. We'll wash one of your trucks at your yard so you can see the work before committing to anything.</p>
+        <span class="section-tag">Book a wash</span>
+        <h2>Get your fleet washed — <span class="accent">this week.</span></h2>
+        <p>No lock-in contract. No deposit. No catch. We come to your yard, work around your schedule, and get your trucks road-ready.</p>
         <ul class="offer-bullets" aria-label="What's included">
-          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>One full truck wash — on us</li>
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>We come to your yard</li>
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No contract, no commitment</li>
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Same-week booking available</li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Early, late &amp; weekend slots</li>
         </ul>
       </div>
-      <div class="form-card" aria-label="Free trial wash booking form">
-        <h3>Claim your free trial</h3>
+      <div class="form-card" aria-label="Truck wash booking form">
+        <h3>Request a booking</h3>
         <p>Fill this out and we'll be in touch within one business day.</p>
         <form class="form-fields" id="lead-form" novalidate>
           <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
@@ -613,27 +669,27 @@
 
 <div class="divider"></div>
 
-<!-- SERVICES / HOW IT WORKS -->
-<section id="service" aria-labelledby="how-heading">
+<!-- SERVICES -->
+<section id="service" aria-labelledby="service-heading">
   <div class="container">
-    <span class="section-tag">Our service</span>
-    <h2 class="section-title" id="how-heading">How it works</h2>
-    <p class="section-sub">No drop-offs, no wash bay queues. We handle everything at your depot.</p>
+    <span class="section-tag">What we do</span>
+    <h2 class="section-title" id="service-heading">Mobile truck washing — <span class="accent">at your depot.</span></h2>
+    <p class="section-sub">No drop-offs, no wash bay queues. We come to you, fully equipped.</p>
     <div class="steps">
       <div class="step">
-        <div class="step-num">Step 01</div>
-        <h3>Book your wash</h3>
-        <p>Tell us your fleet size, location, and schedule. We confirm a slot the same week — most yards within 2–3 days.</p>
+        <div class="step-num">Service 01</div>
+        <h3>Mobile Truck Wash</h3>
+        <p>Full exterior wash carried out at your yard. We bring our own water, pressure equipment, and cleaning products. No facilities needed on your end.</p>
       </div>
       <div class="step">
-        <div class="step-num">Step 02</div>
-        <h3>We come to you</h3>
-        <p>Our mobile rig rolls in with water, power, and equipment. We work around your operations — early, late, weekends.</p>
+        <div class="step-num">Service 02</div>
+        <h3>Fleet Programs</h3>
+        <p>Ongoing wash programs for fleets of any size. One booking sets up your whole schedule — we manage the recurring runs so you don't have to chase anyone.</p>
       </div>
       <div class="step">
-        <div class="step-num">Step 03</div>
-        <h3>Fleet stays clean</h3>
-        <p>Set a recurring schedule — weekly, fortnightly, or monthly — and we keep your whole fleet road-ready without reminder calls.</p>
+        <div class="step-num">Service 03</div>
+        <h3>Scheduled &amp; On-Site Washing</h3>
+        <p>Weekly, fortnightly, or monthly — we lock in a schedule that works around your operations. Early starts, late finishes, and weekends available.</p>
       </div>
     </div>
   </div>
@@ -674,6 +730,13 @@
         <div>
           <h3>Consistent results</h3>
           <p>Same crew. Same standard. Every wash. No surprises, no excuses, no chasing.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div>
+          <h3>Fleet discounts — 10+ vehicles</h3>
+          <p>Running a bigger fleet? We offer fleet pricing for operators with 10 or more vehicles. Ask us about fleet rates when you get in touch.</p>
         </div>
       </div>
     </div>
@@ -725,7 +788,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <blockquote>"Booked the free trial on a Monday, they were at our depot by Wednesday. Signed up for a fortnightly schedule on the spot. Straightforward, professional, reliable."</blockquote>
+        <blockquote>"Booked on a Monday, they were at our depot by Wednesday. Signed up for a fortnightly schedule on the spot. Straightforward, professional, reliable."</blockquote>
         <div class="testimonial-author">
           <span class="author-name">Dave K.</span>
           <span class="author-role">Operations Manager · Kalgoorlie Haulage</span>
@@ -763,6 +826,47 @@
         <div>
           <div class="contact-label">Service area</div>
           <div class="contact-value">Perth WA — All depots</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO/AI CONTENT — hidden visually, indexed by search engines and AI -->
+<section class="testimonials-section" aria-labelledby="seo-about-heading" style="display:none">
+  <div class="container">
+    <span class="section-tag">About Prime Fleet Care</span>
+    <h2 class="section-title" id="seo-about-heading">Perth's mobile truck wash and fleet cleaning specialists.</h2>
+    <p class="section-sub">Everything Google and AI assistants need to know about who we are, what we do, and where we operate.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>Prime Fleet Care is a Perth-based mobile truck wash and fleet cleaning company. We specialise in on-site, mobile truck washing services for transport operators, freight companies, logistics businesses, and owner-operators across the Perth metropolitan area and surrounds. We bring all equipment — water, pressure washers, cleaning products — directly to your depot or yard. Operators never need to move vehicles to a wash bay.</blockquote>
+        <div class="testimonial-author">
+          <span class="author-name">Who we are</span>
+          <span class="author-role">Prime Fleet Care · Perth WA</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>Our services include: mobile truck exterior washing, fleet cleaning programs for fleets of all sizes, recurring scheduled wash programs (weekly, fortnightly, monthly), on-site washing at customer depots and yards, and fleet pricing for operators with 10 or more vehicles. We service semi-trailers, prime movers, rigid trucks, tippers, tankers, refrigerated vans, and light commercial vehicles. All work is carried out at your site — no wash bay required.</blockquote>
+        <div class="testimonial-author">
+          <span class="author-name">Our services</span>
+          <span class="author-role">Mobile wash · Fleet programs · Scheduled service</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <blockquote>Prime Fleet Care services the entire Perth metropolitan region including: Perth CBD and inner suburbs, Fremantle, Kwinana, Rockingham, Mandurah, Joondalup, Midland, Malaga, Welshpool, Kewdale, Forrestfield, Kenwick, Bibra Lake, Canning Vale, Osborne Park, Balcatta, Wangara, and surrounding industrial areas. We also cover regional WA routes including Kalgoorlie, Bunbury, and Geraldton on request. Contact us to check availability in your area.</blockquote>
+        <div class="testimonial-author">
+          <span class="author-name">Service area</span>
+          <span class="author-role">Perth Metro · Regional WA on request</span>
         </div>
       </div>
     </div>
@@ -820,7 +924,7 @@
       form.closest('.form-card').innerHTML = `
         <div class="form-success" role="status" aria-live="polite">
           <h4>Thanks — we got it.</h4>
-          <p>We'll be in touch within one business day to lock in your free wash.<br>Need it sooner? Call <a href="tel:0449162476">0449 162 476</a>.</p>
+          <p>We'll be in touch within one business day to lock in your booking.<br>Need it sooner? Call <a href="tel:0449162476">0449 162 476</a>.</p>
         </div>`;
     } catch {
       btn.textContent = 'Book Now';
