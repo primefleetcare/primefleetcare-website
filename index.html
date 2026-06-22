@@ -89,8 +89,8 @@
 
 <style>
   :root {
-    --orange: #F04E00;
-    --orange-dark: #D44300;
+    --orange: #D94B00;
+    --orange-dark: #B83E00;
     --black: #18181A;
     --surface: #222224;
     --border: #2C2C2E;
@@ -542,12 +542,18 @@
   .contact-item a:hover .contact-value { color: var(--orange); }
 
   /* ── FOOTER ── */
-  footer { border-top: 1px solid var(--border); padding: 24px 0; }
-  .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer { border-top: 1px solid var(--border); padding: 28px 0; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px; }
   .footer-logo { display: flex; align-items: center; }
   .footer-logo-text { font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 1rem; color: var(--orange); text-transform: uppercase; letter-spacing: .02em; }
-  .footer-meta { font-size: .78rem; color: var(--muted); }
-  .footer-meta a:hover { color: var(--orange); }
+  .footer-links { display: flex; align-items: center; gap: 4px 16px; flex-wrap: wrap; }
+  .footer-links a { font-size: .78rem; color: var(--muted); transition: color .15s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-socials { display: flex; align-items: center; gap: 8px; }
+  .footer-socials a { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 6px; color: var(--muted); transition: border-color .15s, color .15s; }
+  .footer-socials a:hover { border-color: var(--orange); color: var(--orange); }
+  .footer-copy { font-size: .72rem; color: var(--muted); width: 100%; border-top: 1px solid var(--border); padding-top: 16px; margin-top: 4px; }
+  @media (max-width: 600px) { .footer-inner { gap: 12px; } .footer-copy { padding-top: 12px; } }
 
   /* ── MOBILE CALL BAR ── */
   .mobile-call-bar {
@@ -1155,10 +1161,23 @@
       <div class="footer-logo">
         <span class="footer-logo-text">Prime Fleet Care</span>
       </div>
-      <div class="footer-meta">Perth WA · ABN 70 690 186 586 · &copy; <span id="year"></span> Prime Fleet Care</div>
-      <div class="footer-meta">
-        <a href="/faqs.html">FAQs</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="tel:0449162476">0449 162 476</a> &nbsp;·&nbsp; <a href="mailto:info@primefleetcare.com.au">info@primefleetcare.com.au</a>
+      <div class="footer-links">
+        <a href="tel:0449162476">0449 162 476</a>
+        <a href="mailto:info@primefleetcare.com.au">info@primefleetcare.com.au</a>
+        <a href="/faqs.html">FAQs</a>
+        <a href="/privacy.html">Privacy</a>
       </div>
+      <div class="footer-socials">
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/primefleetcare" target="_blank" rel="noopener noreferrer" aria-label="Prime Fleet Care on Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/primefleetcare" target="_blank" rel="noopener noreferrer" aria-label="Prime Fleet Care on Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+      <div class="footer-copy">Perth WA &nbsp;·&nbsp; ABN 70 690 186 586 &nbsp;·&nbsp; &copy; <span id="year"></span> Prime Fleet Care</div>
     </div>
   </div>
 </footer>
