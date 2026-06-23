@@ -44,16 +44,24 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5",
-    "reviewCount": "4",
+    "reviewCount": "3",
     "bestRating": "5",
     "worstRating": "1"
   },
   "review": [
     {
       "@type": "Review",
+      "author": {"@type": "Person", "name": "Sam"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "datePublished": "2025-01-01",
+      "reviewBody": "Great comms. Consistent service every time.",
+      "name": "Consistent service every time"
+    },
+    {
+      "@type": "Review",
       "author": {"@type": "Person", "name": "Mark T."},
       "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-      "datePublished": "2026-05-01",
+      "datePublished": "2024-12-01",
       "reviewBody": "We were spending hours every week getting rigs to the wash bay. Harry's team just shows up at the yard and gets it done. Rigs look sharp, zero disruption to our runs.",
       "name": "Zero disruption, great results"
     },
@@ -61,17 +69,9 @@
       "@type": "Review",
       "author": {"@type": "Person", "name": "Steve R."},
       "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-      "datePublished": "2026-04-15",
+      "datePublished": "2024-11-01",
       "reviewBody": "Tried two other mobile wash companies before Prime Fleet Care. Night and day difference. They actually show up on time and the trucks come out clean — every single time.",
       "name": "Night and day difference"
-    },
-    {
-      "@type": "Review",
-      "author": {"@type": "Person", "name": "Dave K."},
-      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-      "datePublished": "2026-04-20",
-      "reviewBody": "Booked the free trial on a Monday, they were at our depot by Wednesday. Signed up for a fortnightly schedule on the spot. Straightforward, professional, reliable.",
-      "name": "Booked and done same week"
     }
   ]
 }
@@ -256,7 +256,7 @@
           <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <div class="rating-label">5 out of 5 · 4 reviews</div>
+        <div class="rating-label">5 out of 5 · 3 reviews</div>
       </div>
     </div>
 
@@ -317,23 +317,6 @@
         </div>
       </div>
 
-      <div class="review-card" itemscope itemprop="review" itemtype="https://schema.org/Review">
-        <div class="review-stars" aria-label="5 stars">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-          <meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5">
-        </div>
-        <blockquote class="review-body" itemprop="reviewBody">"Booked the free trial on a Monday, they were at our depot by Wednesday. Signed up for a fortnightly schedule on the spot. Straightforward, professional, reliable."</blockquote>
-        <div class="review-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <div class="review-name" itemprop="name">Dave K.</div>
-          <div class="review-role">Operations Manager · Kalgoorlie Haulage</div>
-        </div>
-      </div>
     </div>
 
     <div class="section-divider"></div>
