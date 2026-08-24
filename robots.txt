@@ -1,4 +1,4 @@
-# Prime Fleet Care — robots.txt
+# Prime Fleet Care - robots.txt
 # Mobile truck wash & fleet cleaning, Perth WA
 
 # Search engines
@@ -7,7 +7,7 @@ Allow: /
 Disallow: /privacy.html
 Disallow: /crm.html
 
-# AI assistants & answer engines — explicitly welcome to read and cite this site
+# AI assistants & answer engines - explicitly welcome to read and cite this site
 User-agent: GPTBot
 Allow: /
 
