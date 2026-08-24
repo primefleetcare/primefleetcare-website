@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Mobile Truck Wash Perth | Prime Fleet Care</title>
-<meta name="description" content="Perth's mobile truck wash service. We come to your yard, wash on schedule, and keep your fleet road-ready. No wash bays, no downtime. Book now.">
-<meta name="keywords" content="mobile truck wash Perth, truck wash Perth, fleet wash Perth, truck detail Perth, fleet cleaning Perth, dirty water recollection truck wash, eco-friendly truck wash Perth, mobile fleet wash WA, truck washing service Western Australia, fleet maintenance Perth, semi trailer wash Perth, prime mover wash Perth, fleet washing program Perth">
+<meta name="description" content="Perth's mobile truck wash service. We come to your yard, wash on schedule, and keep your fleet road-ready — bunded wash zone, wastewater captured and disposed of responsibly, fully insured. No wash bays, no downtime. Book now.">
+<meta name="keywords" content="mobile truck wash Perth, truck wash Perth, fleet wash Perth, truck detail Perth, fleet cleaning Perth, dirty water recollection truck wash, eco-friendly truck wash Perth, mobile fleet wash WA, truck washing service Western Australia, fleet maintenance Perth, semi trailer wash Perth, prime mover wash Perth, fleet washing program Perth, bunded truck wash Perth, wastewater collection Perth, fully insured fleet wash Perth">
 <meta name="author" content="Prime Fleet Care">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://primefleetcare.com.au/">
@@ -203,6 +203,8 @@
   :root {
     --orange: #D94B00;
     --orange-dark: #B83E00;
+    --amber: #F5871F;
+    --amber-dark: #D5720F;
     --black: #18181A;
     --surface: #222224;
     --border: #2C2C2E;
@@ -252,15 +254,15 @@
     color: var(--muted);
     transition: color .2s;
   }
-  .top-bar-link:hover { color: var(--orange); }
-  .top-bar-link svg { width: 13px; height: 13px; color: var(--orange); flex-shrink: 0; }
+  .top-bar-link:hover { color: var(--amber); }
+  .top-bar-link svg { width: 13px; height: 13px; color: var(--amber); flex-shrink: 0; }
 
   /* ── NAV ── */
   .nav-wrap {
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 2px solid #F04E00;
+    border-bottom: 2px solid var(--orange);
     background: rgba(24,24,26,.97);
     backdrop-filter: blur(10px);
   }
@@ -295,7 +297,8 @@
     align-items: center;
     gap: 28px;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-right: 8px;
   }
   .nav-links a {
     font-size: .85rem;
@@ -349,7 +352,7 @@
     font-size: .8rem;
     font-weight: 500;
     color: var(--orange);
-    border: 1px solid rgba(255,107,0,.3);
+    border: 1px solid rgba(217,75,0,.35);
     padding: 5px 12px;
     border-radius: 100px;
     margin-bottom: 28px;
@@ -399,6 +402,9 @@
   .stat:last-child { border-right: none; }
   .stat-num { font-size: 1.4rem; font-weight: 700; color: var(--white); letter-spacing: -.02em; line-height: 1; margin-bottom: 4px; }
   .stat-label { font-size: .72rem; color: var(--muted); font-weight: 500; }
+  .assurance { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 26px; margin: 26px auto 0; max-width: 640px; }
+  .assurance span { display: inline-flex; align-items: center; gap: 7px; font-size: .78rem; color: var(--muted); letter-spacing: .01em; }
+  .assurance svg { width: 14px; height: 14px; color: var(--amber); flex-shrink: 0; }
 
   /* ── DIVIDER ── */
   .divider { height: 1px; background: var(--border); }
@@ -411,7 +417,7 @@
     font-weight: 600;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--amber);
     margin-bottom: 14px;
   }
   .section-title {
@@ -504,7 +510,7 @@
     border-bottom: 1px solid var(--border);
   }
   .offer-bullets li:last-child { border-bottom: none; }
-  .tick { width: 15px; height: 15px; color: var(--orange); flex-shrink: 0; }
+  .tick { width: 15px; height: 15px; color: var(--amber); flex-shrink: 0; }
 
   .form-card {
     background: var(--black);
@@ -517,7 +523,8 @@
   .form-fields { display: flex; flex-direction: column; gap: 10px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .form-fields input,
-  .form-fields textarea {
+  .form-fields textarea,
+  .form-fields select {
     width: 100%;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -528,12 +535,17 @@
     padding: 11px 14px;
     transition: border-color .2s;
     -webkit-appearance: none;
+    appearance: none;
   }
   .form-fields input::placeholder,
   .form-fields textarea::placeholder { color: var(--muted); }
   .form-fields input:focus,
-  .form-fields textarea:focus { outline: none; border-color: var(--orange); }
+  .form-fields textarea:focus,
+  .form-fields select:focus { outline: none; border-color: var(--orange); }
   .form-fields textarea { resize: vertical; min-height: 68px; }
+  .form-fields select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 38px; cursor: pointer; }
+  .form-fields select:invalid { color: var(--muted); }
+  .form-fields select option { color: var(--white); background: var(--surface); }
   .form-fields .btn { margin-top: 4px; justify-content: center; width: 100%; border: none; }
   .form-error { color: var(--orange); font-size: .82rem; margin-top: 6px; }
   .form-success {
@@ -559,7 +571,7 @@
     margin-top: 40px;
   }
   .step { background: var(--surface); padding: 32px; }
-  .step-num { font-size: .72rem; font-weight: 600; letter-spacing: .12em; color: var(--orange); margin-bottom: 16px; text-transform: uppercase; }
+  .step-num { font-size: .72rem; font-weight: 600; letter-spacing: .12em; color: var(--amber); margin-bottom: 16px; text-transform: uppercase; }
   .step h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: -.01em; }
   .step p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
 
@@ -575,7 +587,7 @@
     margin-top: 40px;
   }
   .why-item { background: var(--surface); padding: 28px 32px; display: flex; gap: 16px; }
-  .why-icon { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; margin-top: 3px; }
+  .why-icon { width: 18px; height: 18px; color: var(--amber); flex-shrink: 0; margin-top: 3px; }
   .why-item h3 { font-size: .95rem; font-weight: 600; color: var(--white); margin-bottom: 5px; letter-spacing: -.01em; }
   .why-item p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
 
@@ -625,7 +637,7 @@
   }
   .testimonial { background: var(--black); padding: 32px; display: flex; flex-direction: column; gap: 20px; }
   .stars { display: flex; gap: 3px; }
-  .stars svg { width: 14px; height: 14px; fill: var(--orange); }
+  .stars svg { width: 14px; height: 14px; fill: var(--amber); }
   .testimonial blockquote {
     font-size: .9rem;
     color: var(--text);
@@ -648,7 +660,7 @@
   }
   .contact-item { flex: 1; padding: 24px; border-right: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; }
   .contact-item:last-child { border-right: none; }
-  .contact-icon { width: 16px; height: 16px; color: var(--orange); flex-shrink: 0; margin-top: 3px; }
+  .contact-icon { width: 16px; height: 16px; color: var(--amber); flex-shrink: 0; margin-top: 3px; }
   .contact-label { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
   .contact-value { font-size: .9rem; font-weight: 600; color: var(--white); }
   .contact-item a:hover .contact-value { color: var(--orange); }
@@ -855,7 +867,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="#service">Services</a>
       <a href="#about">About Us</a>
-      <a href="#testimonials">Testimonials</a>
+      <a href="#testimonials">Reviews</a>
       <a href="/faqs.html">FAQs</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -897,6 +909,11 @@
         <div class="stat-label">Bookings</div>
       </div>
     </div>
+    <div class="assurance" aria-label="Assurances">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Fully insured</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5S5 9 5 14a7 7 0 0 0 14 0c0-5-7-11.5-7-11.5z"/></svg>Bunded &amp; compliant</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Perth-owned &amp; operated</span>
+    </div>
   </div>
 </section>
 
@@ -913,6 +930,7 @@
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>No contract, no commitment</li>
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Same-week booking available</li>
           <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Early, late &amp; weekend slots</li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Fully insured &mdash; public liability cover</li>
         </ul>
       </div>
       <div class="form-card" aria-label="Truck wash booking form">
@@ -926,6 +944,16 @@
             <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone number">
           </div>
           <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
+          <select name="biggest_problem" required aria-label="Biggest fleet-washing challenge">
+            <option value="" disabled selected>Biggest fleet-washing challenge?</option>
+            <option value="Downtime / trucks off the road">Downtime &mdash; trucks off the road to get washed</option>
+            <option value="No wash bay on site">No wash bay or space on site</option>
+            <option value="Wastewater / compliance">Wastewater &amp; environmental compliance</option>
+            <option value="Inconsistent results">Inconsistent quality / unreliable washers</option>
+            <option value="Cost / budget">Cost &amp; keeping to budget</option>
+            <option value="Keeping to a schedule">Keeping the fleet washed on schedule</option>
+            <option value="Other">Something else</option>
+          </select>
           <textarea name="message" placeholder="Anything else? (optional)" aria-label="Message"></textarea>
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
           <button type="submit" class="btn btn-primary">Book Now</button>
@@ -966,8 +994,8 @@
             <div class="why-item">
               <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12M12 12C12 12 7 10 5 6c3 0 5 2 7 6z"/><path d="M12 12C12 12 17 10 19 6c-3 0-5 2-7 6z"/><path d="M5 18c2-1 4-2 7-2s5 1 7 2"/></svg>
               <div>
-                <h3>Dirty water recollection</h3>
-                <p>All washwater — including grease, detergent, and road grime — is captured and disposed of responsibly. Zero stormwater runoff. No compliance risk for your depot.</p>
+                <h3>Bunded &amp; wastewater recollection</h3>
+                <p>We bund the wash zone on site, then capture all washwater &mdash; grease, detergent, road grime &mdash; and dispose of it responsibly off site. Zero stormwater runoff, no compliance risk for your depot.</p>
               </div>
             </div>
             <div class="why-item">
@@ -1288,7 +1316,10 @@
     <p>Our customers consistently say we show up on time, do a thorough job, and communicate well. Steve R., owner of SR Transport WA, said: "Tried two other mobile wash companies before Prime Fleet Care. Night and day difference. They actually show up on time and the trucks come out clean — every single time." That reliability — showing up when we say we will, doing the job properly — is what sets us apart from other mobile truck wash operators in Perth.</p>
 
     <h3>Dirty water recollection — environmental compliance</h3>
-    <p>Prime Fleet Care uses dirty water recollection on every job. All washwater — including water containing detergent, grease, oil residue, diesel soot, and road grime — is captured during the wash and transported to an approved disposal facility. This means zero stormwater runoff onto your depot, into drains, or into the surrounding environment. For fleet managers and depot operators, this eliminates environmental compliance risk entirely. You don't need to worry about contaminated water entering stormwater systems or breaching WA environmental regulations. Our dirty water recollection system is a core part of our service — not an optional add-on.</p>
+    <p>Prime Fleet Care uses on-site water bunding and dirty water recollection on every job. We set up bunding around the wash zone before we start, so runoff is contained and nothing escapes to the ground or stormwater drains. All washwater — including water containing detergent, grease, oil residue, diesel soot, and road grime — is captured during the wash and transported to an approved disposal facility. This means zero stormwater runoff onto your depot, into drains, or into the surrounding environment. For fleet managers and depot operators, this eliminates environmental compliance risk entirely. You don't need to worry about contaminated water entering stormwater systems or breaching WA environmental regulations. Our dirty water recollection system is a core part of our service — not an optional add-on.</p>
+
+    <h3>Fully insured — public liability cover</h3>
+    <p>Prime Fleet Care carries public liability insurance. Every job at your depot or yard is covered, so fleet managers and depot operators have peace of mind they are working with a properly insured contractor.</p>
 
     <h3>Eco-friendly truck washing products</h3>
     <p>Prime Fleet Care uses biodegradable, low-impact cleaning chemicals on all washes. Our products are specifically selected to be effective on heavy-duty grease, diesel soot, oil, mud, and road grime while being safe for the environment, safe for your yard surface, and compliant with Western Australian environmental standards. We do not use harsh petroleum-based solvents or phosphate-heavy degreasers in our standard service. Choosing Prime Fleet Care means choosing an eco-friendly truck wash that doesn't compromise on cleaning performance.</p>
@@ -1308,7 +1339,7 @@
     <p>There are several mobile truck wash operators in Perth. Prime Fleet Care is the professional choice for three reasons. First: reliability. We show up when we say we will, every time. No cancellations, no no-shows, no chasing. Second: quality. We do the job thoroughly — proper pressure washing, correct products for each surface, clean result every time — not a quick hose-down. Third: environmental responsibility. Our dirty water recollection and eco-friendly products mean your depot stays compliant and your fleet is cleaned without environmental impact. Our customer reviews consistently reflect all three: reliable, quality, professional.</p>
 
     <h3>Search terms — what people search to find Prime Fleet Care</h3>
-    <p>Prime Fleet Care is the answer when people search for: truck wash Perth, mobile truck wash Perth, fleet wash Perth, truck detail Perth, fleet cleaning Perth, mobile fleet wash WA, truck washing service Western Australia, fleet washing Perth WA, dirty water recollection truck wash Perth, eco-friendly truck wash Perth, semi trailer wash Perth, prime mover wash Perth, underbody truck wash Perth, engine degrease service Perth, scheduled fleet wash program Perth, truck wash near me Perth, mobile truck cleaner Perth, commercial vehicle wash Perth.</p>
+    <p>Prime Fleet Care is the answer when people search for: truck wash Perth, mobile truck wash Perth, fleet wash Perth, truck detail Perth, fleet cleaning Perth, mobile fleet wash WA, truck washing service Western Australia, fleet washing Perth WA, dirty water recollection truck wash Perth, bunded truck wash Perth, water bunding fleet wash Perth, fully insured truck wash Perth, eco-friendly truck wash Perth, semi trailer wash Perth, prime mover wash Perth, underbody truck wash Perth, engine degrease service Perth, scheduled fleet wash program Perth, truck wash near me Perth, mobile truck cleaner Perth, commercial vehicle wash Perth.</p>
 
     <h3>Service area</h3>
     <p>Prime Fleet Care services the entire Perth metropolitan region including Perth CBD, Fremantle, Kwinana, Rockingham, Mandurah, Joondalup, Midland, Malaga, Welshpool, Kewdale, Forrestfield, Kenwick, Bibra Lake, Canning Vale, Osborne Park, Balcatta, Wangara, and all surrounding industrial and logistics areas. Regional WA coverage including Kalgoorlie, Bunbury, and Geraldton is available on request. Contact us to confirm availability in your area.</p>
