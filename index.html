@@ -214,7 +214,9 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-snap-type: y proximity; scroll-padding-top: 60px; }
+  .hero, .booking-section, #whatwedo, #service, #about, .testimonials-section, #contact { scroll-snap-align: start; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; scroll-behavior: auto; } }
   body {
     font-family: 'Work Sans', system-ui, sans-serif;
     background: var(--black);
@@ -911,7 +913,7 @@
     </div>
     <div class="assurance" aria-label="Assurances">
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Fully insured</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5S5 9 5 14a7 7 0 0 0 14 0c0-5-7-11.5-7-11.5z"/></svg>Bunded &amp; compliant</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5S5 9 5 14a7 7 0 0 0 14 0c0-5-7-11.5-7-11.5z"/></svg>Bunded &amp; wastewater compliant</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Perth-owned &amp; operated</span>
     </div>
   </div>
@@ -944,16 +946,7 @@
             <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone number">
           </div>
           <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
-          <select name="biggest_problem" required aria-label="Biggest fleet-washing challenge">
-            <option value="" disabled selected>Biggest fleet-washing challenge?</option>
-            <option value="Downtime / trucks off the road">Downtime &mdash; trucks off the road to get washed</option>
-            <option value="No wash bay on site">No wash bay or space on site</option>
-            <option value="Wastewater / compliance">Wastewater &amp; environmental compliance</option>
-            <option value="Inconsistent results">Inconsistent quality / unreliable washers</option>
-            <option value="Cost / budget">Cost &amp; keeping to budget</option>
-            <option value="Keeping to a schedule">Keeping the fleet washed on schedule</option>
-            <option value="Other">Something else</option>
-          </select>
+          <input type="text" name="biggest_problem" placeholder="Biggest fleet-washing challenge? (optional)" aria-label="Biggest fleet-washing challenge (optional)">
           <textarea name="message" placeholder="Anything else? (optional)" aria-label="Message"></textarea>
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
           <button type="submit" class="btn btn-primary">Book Now</button>
@@ -976,22 +969,6 @@
         <div class="carousel-track">
           <div class="carousel-slide two-up">
             <div class="why-item">
-              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="14" height="8" rx="1"/><path d="M16 11h4l2 3v3h-6"/><circle cx="7" cy="20" r="2"/><circle cx="19" cy="20" r="2"/></svg>
-              <div>
-                <h3>Fully mobile</h3>
-                <p>We bring water, power, and all equipment to your yard. No wash bay, no hose point, nothing required on your end — we show up completely self-sufficient.</p>
-              </div>
-            </div>
-            <div class="why-item">
-              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
-              <div>
-                <h3>Around your schedule</h3>
-                <p>Early starts, late finishes, weekends. We work around your fleet's operational hours — your trucks keep running while we get them clean.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-slide two-up">
-            <div class="why-item">
               <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12M12 12C12 12 7 10 5 6c3 0 5 2 7 6z"/><path d="M12 12C12 12 17 10 19 6c-3 0-5 2-7 6z"/><path d="M5 18c2-1 4-2 7-2s5 1 7 2"/></svg>
               <div>
                 <h3>Bunded &amp; wastewater recollection</h3>
@@ -1003,6 +980,22 @@
               <div>
                 <h3>Eco-friendly products</h3>
                 <p>Biodegradable cleaning chemicals throughout. Tough on grease and diesel soot — safe for the environment and compliant with WA environmental standards.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide two-up">
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="14" height="8" rx="1"/><path d="M16 11h4l2 3v3h-6"/><circle cx="7" cy="20" r="2"/><circle cx="19" cy="20" r="2"/></svg>
+              <div>
+                <h3>Fully mobile</h3>
+                <p>We bring water, power, and all equipment to your yard. No wash bay, no hose point, nothing required on your end — we show up completely self-sufficient.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
+              <div>
+                <h3>Around your schedule</h3>
+                <p>Early starts, late finishes, weekends. We work around your fleet's operational hours — your trucks keep running while we get them clean.</p>
               </div>
             </div>
           </div>
@@ -1486,8 +1479,7 @@
       var cur = 0, total = slides.length;
       if (total <= 1) return;
 
-      function go(n) {
-        cur = Math.max(0, Math.min(n, total - 1));
+      function render() {
         track.style.transform = 'translateX(-' + (cur * 100) + '%)';
         dots.forEach(function (d, i) {
           d.classList.toggle('on', i === cur);
@@ -1497,19 +1489,47 @@
         if (next) next.disabled = cur === total - 1;
       }
 
-      if (prev) prev.addEventListener('click', function () { go(cur - 1); });
-      if (next) next.addEventListener('click', function () { go(cur + 1); });
-      dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+      function go(n) {
+        cur = Math.max(0, Math.min(n, total - 1));
+        render();
+      }
+
+      var AUTOPLAY_MS = 5000;
+      var timer = null;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function stopAutoplay() { if (timer) { clearInterval(timer); timer = null; } }
+      function startAutoplay() {
+        if (reduceMotion) return;
+        stopAutoplay();
+        timer = setInterval(function () {
+          cur = (cur + 1) % total;
+          render();
+        }, AUTOPLAY_MS);
+      }
+
+      if (prev) prev.addEventListener('click', function () { go(cur - 1); startAutoplay(); });
+      if (next) next.addEventListener('click', function () { go(cur + 1); startAutoplay(); });
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); startAutoplay(); }); });
 
       // Touch swipe
       var sx = 0;
       el.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
       el.addEventListener('touchend', function (e) {
         var dx = e.changedTouches[0].clientX - sx;
-        if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1));
+        if (Math.abs(dx) > 40) { go(cur + (dx < 0 ? 1 : -1)); startAutoplay(); }
       });
 
-      go(0);
+      el.addEventListener('mouseenter', stopAutoplay);
+      el.addEventListener('mouseleave', startAutoplay);
+      el.addEventListener('focusin', stopAutoplay);
+      el.addEventListener('focusout', startAutoplay);
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stopAutoplay(); else startAutoplay();
+      });
+
+      render();
+      startAutoplay();
     }
     document.querySelectorAll('.carousel').forEach(initCarousel);
   })();
