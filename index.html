@@ -215,7 +215,7 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; scroll-snap-type: y proximity; scroll-padding-top: 60px; }
-  .hero, .booking-section, #whatwedo, #service, #about, .testimonials-section, #contact { scroll-snap-align: start; }
+  .hero, .booking-section, #whatwedo, #service, #about, .testimonials-section, #contact { scroll-snap-align: start; scroll-snap-stop: always; }
   @media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; scroll-behavior: auto; } }
   body {
     font-family: 'Work Sans', system-ui, sans-serif;
@@ -1494,7 +1494,7 @@
         render();
       }
 
-      var AUTOPLAY_MS = 5000;
+      var AUTOPLAY_MS = 4000;
       var timer = null;
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
