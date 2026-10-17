@@ -8,7 +8,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Mobile Truck Wash Perth | Prime Fleet Care</title>
 <meta name="description" content="Perth's mobile truck wash service. We come to your yard, wash on schedule, and keep your fleet road-ready — bunded wash zone, wastewater captured and disposed of responsibly, fully insured. No wash bays, no downtime. Book now.">
-<meta name="keywords" content="mobile truck wash Perth, truck wash Perth, fleet wash Perth, truck detail Perth, fleet cleaning Perth, dirty water recollection truck wash, eco-friendly truck wash Perth, mobile fleet wash WA, truck washing service Western Australia, fleet maintenance Perth, semi trailer wash Perth, prime mover wash Perth, fleet washing program Perth, bunded truck wash Perth, wastewater collection Perth, fully insured fleet wash Perth, fleet detailing Perth, truck detailing Perth, mobile truck detailing Perth, ceramic coating Perth">
+<meta name="keywords" content="mobile truck wash Perth, truck aluminium polishing Perth, truck wash Perth, fleet wash Perth, truck detail Perth, fleet cleaning Perth, dirty water recollection truck wash, eco-friendly truck wash Perth, mobile fleet wash WA, truck washing service Western Australia, fleet maintenance Perth, semi trailer wash Perth, prime mover wash Perth, fleet washing program Perth, bunded truck wash Perth, wastewater collection Perth, fully insured fleet wash Perth, fleet detailing Perth, truck detailing Perth, mobile truck detailing Perth, ceramic coating Perth">
 <meta name="author" content="Prime Fleet Care">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://primefleetcare.com.au/">
@@ -64,8 +64,8 @@
         },
         "geoRadius": "80000"
       },
-      "serviceType": ["Mobile truck washing", "Fleet washing", "Truck detailing", "Fleet cleaning", "Mobile fleet wash", "Engine degreasing", "Underbody cleaning", "Fleet detailing", "Ceramic coating", "Dirty water recollection"],
-      "description": "Prime Fleet Care is Perth's mobile truck wash and fleet cleaning specialist. We come to your depot with all equipment — water tanks, pressure washers, and eco-friendly biodegradable products. Fully mobile, no wash bay needed. We schedule around your fleet's operational hours including early starts, late finishes, and weekends. All dirty water is captured and responsibly disposed of — zero stormwater runoff. Services: exterior truck washing, full detailing, engine and radiator degreasing, underbody cleaning, interior cab cleaning, ceramic sealant, and trailer washing. Serving Perth metro and regional WA.",
+      "serviceType": ["Mobile truck washing", "Fleet washing", "Truck detailing", "Fleet cleaning", "Mobile fleet wash", "Engine degreasing", "Underbody cleaning", "Fleet detailing", "Aluminium polishing", "Ceramic coating", "Dirty water recollection"],
+      "description": "Prime Fleet Care is Perth's mobile truck wash and fleet cleaning specialist. We come to your depot with all equipment — water tanks, pressure washers, and eco-friendly biodegradable products. Fully mobile, no wash bay needed. We schedule around your fleet's operational hours including early starts, late finishes, and weekends. All dirty water is captured and responsibly disposed of — zero stormwater runoff. Services: exterior fleet washing, full detailing (inside and out), aluminium polishing, plus add-ons: engine and radiator degreasing, underbody cleaning, interior cab cleaning, ceramic sealant, and trailer washing. Serving Perth metro and regional WA.",
       "priceRange": "$$",
       "taxID": "70690186586",
       "openingHoursSpecification": [
@@ -114,12 +114,12 @@
         "@type": "OfferCatalog",
         "name": "Mobile Truck Wash and Fleet Cleaning Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior truck wash", "description": "Full vehicle exterior wash — cab, body, and trailer. Thorough pressure wash, not just a hose-down." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full exterior truck detail", "description": "Paint correction and long-term protection applied after washing. Keeps your fleet looking sharp." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fleet wash", "description": "Full exterior wash of the cab, body, wheels and trailer, bunded with all washwater captured. One-off or weekly, fortnightly or monthly programs." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full truck detailing", "description": "Inside and out: exterior paint correction and protection plus a deep cab clean. Also available exterior-only or interior-only." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aluminium polishing", "description": "Fuel tanks, wheels, bullbars, toolboxes and trims polished back to a bright finish, removing oxidation and road film." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Engine and radiator degrease", "description": "Heavy-duty degreasing for engine bays and radiators. Prevents overheating and corrosion." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Underbody clean", "description": "Full undercarriage wash removing mud, salt, and road grime that accelerates rust and corrosion." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior cab clean and vacuum", "description": "Cab surfaces wiped down and vacuumed at your depot. Quick and thorough." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full interior cab detail", "description": "Deep clean of the entire cab — seats, dash, door trims, and floor." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trailer interior wash", "description": "Interior wash for enclosed trailers. Removes dust, residue, and odours ready for the next load." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ceramic paint sealant", "description": "Long-lasting paint protection applied after detailing. Keeps your fleet cleaner for longer." } }
         ]
@@ -580,6 +580,29 @@
   .step h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: -.01em; }
   .step p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
 
+  /* ── SERVICES ── */
+  .svc-core {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  .svc-card { background: var(--surface); padding: 32px; }
+  .svc-card .why-icon { width: 22px; height: 22px; margin: 0 0 18px; display: block; }
+  .svc-card h3 { font-size: 1.35rem; color: var(--white); margin-bottom: 8px; letter-spacing: -.01em; }
+  .svc-card p { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+  .addons { margin-top: 48px; }
+  .addons h3 { font-size: 1.15rem; color: var(--white); letter-spacing: -.01em; margin-bottom: 4px; }
+  .addons > p { font-size: .875rem; color: var(--muted); }
+  .addon-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; margin-top: 12px; }
+  .addon-list li { display: flex; align-items: flex-start; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: .875rem; color: var(--muted); line-height: 1.55; }
+  .addon-list .tick { margin-top: 3px; }
+  .addon-list strong { display: block; color: var(--text); font-weight: 600; }
+
   /* ── WHY / ABOUT ── */
   .why-grid {
     display: grid;
@@ -786,6 +809,8 @@
     .booking-inner { grid-template-columns: 1fr; gap: 36px; }
     .steps { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
+    .svc-core { grid-template-columns: 1fr; }
+    .addon-list { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .contact-strip { flex-direction: column; }
     .contact-item { border-right: none; border-bottom: 1px solid var(--border); }
@@ -997,64 +1022,34 @@
   <div class="container">
     <span class="section-tag">Services</span>
     <h2 class="section-title" id="service-heading">Everything your fleet needs — <span class="accent">done on-site.</span></h2>
-    <p class="section-sub">Full wash and detail service. We come to you with everything we need — no facilities required on your end.</p>
-    <div class="why-grid">
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/></svg>
-        <div>
-          <h3>Exterior wash</h3>
-          <p>Full vehicle exterior — cab, body, trailer. We wash everything properly, not just a hose-down.</p>
-        </div>
+    <p class="section-sub">Pick a core service, then add extras to suit your fleet. We bring everything, so nothing is needed on your end.</p>
+    <div class="svc-core">
+      <div class="svc-card">
+        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5S5 9 5 14a7 7 0 0 0 14 0c0-5-7-11.5-7-11.5z"/></svg>
+        <h3>Fleet wash</h3>
+        <p>Full exterior wash of the cab, body, wheels and trailer, with the wash zone bunded and all washwater captured. Book a one-off or a weekly, fortnightly or monthly program.</p>
       </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        <div>
-          <h3>Full exterior detail</h3>
-          <p>Paint correction and protection applied after the wash. Leaves your fleet looking sharp and protected long-term.</p>
-        </div>
+      <div class="svc-card">
+        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+        <h3>Full detailing</h3>
+        <p>Inside and out. Exterior paint correction and protection, plus a deep clean of the cab: seats, dash, door trims and floor. Also available exterior-only or interior-only.</p>
       </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M8 12h8M12 8v8"/></svg>
-        <div>
-          <h3>Engine &amp; radiator degrease</h3>
-          <p>Heavy-duty degreasing for engine bays and radiators. Cuts through built-up grease and grime that causes overheating and corrosion.</p>
-        </div>
+      <div class="svc-card">
+        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/></svg>
+        <h3>Aluminium polishing</h3>
+        <p>Fuel tanks, wheels, bullbars, toolboxes and trims polished back to a bright finish. Removes oxidation and road film so your rigs stand out.</p>
       </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="14" height="8" rx="1"/><path d="M16 11h4l2 3v3h-6"/><circle cx="7" cy="20" r="2"/><circle cx="19" cy="20" r="2"/></svg>
-        <div>
-          <h3>Underbody clean</h3>
-          <p>Full undercarriage wash. Removes mud, salt, and road grime that causes rust, corrosion, and hidden damage over time.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        <div>
-          <h3>Interior wipe &amp; vacuum</h3>
-          <p>Cab clean — surfaces wiped down and vacuumed out. Quick, thorough, and done at the yard so drivers aren't waiting around.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        <div>
-          <h3>Full interior detail</h3>
-          <p>Deep clean of the entire cab — seats, dash, door trims, floor. The kind of clean that makes a truck look new again.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8zM5 19a2 2 0 100-4 2 2 0 000 4zM19 19a2 2 0 100-4 2 2 0 000 4z"/></svg>
-        <div>
-          <h3>Trailer inside clean</h3>
-          <p>Interior wash for enclosed trailers. Gets rid of dust, residue, and odours — ready for your next load.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div>
-          <h3>Ceramic sealant application</h3>
-          <p>Long-term paint protection applied after detailing. One application keeps your fleet cleaner longer and easier to maintain.</p>
-        </div>
-      </div>
+    </div>
+    <div class="addons">
+      <h3>Add-ons</h3>
+      <p>Add any of these to a wash or detail.</p>
+      <ul class="addon-list">
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span><strong>Engine &amp; radiator degrease</strong>Cuts built-up grease that causes overheating and corrosion.</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span><strong>Underbody clean</strong>Mud, salt and road grime off the undercarriage before it rusts.</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span><strong>Interior wipe &amp; vacuum</strong>A quick cab clean at the yard, so drivers aren't left waiting.</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span><strong>Trailer inside clean</strong>Dust, residue and odours out, ready for the next load.</span></li>
+          <li><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span><strong>Ceramic sealant</strong>Long-term paint protection that keeps trucks cleaner for longer.</span></li>
+      </ul>
     </div>
   </div>
 </section>
