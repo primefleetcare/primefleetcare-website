@@ -26,6 +26,7 @@
 **Critical rules:**
 - Two warm accents ONLY — Safety Orange `#D94B00` and Amber `#F5871F`. NEVER introduce blue, green, or any other hue.
 - Keep their roles distinct: **orange = action/brand** (CTAs, buttons, logo, nav underline, `.accent` heading highlights, mobile call bar); **amber = supporting detail** (eyebrows/section tags, all line icons, tick marks, review stars, compliance + insurance). Do NOT use amber on buttons/CTAs.
+- **WEBSITE EXCEPTION (2026-10-17): on the website the roles are swapped.** On index, faqs, privacy and reviews, **amber = action** (CTAs, buttons, text logo, nav underline, `.accent` highlights, mobile call bar, carousel dots) and **orange = supporting detail** (eyebrows, line icons, ticks, stars, compliance cues). Text on amber buttons is `var(--black)` (7.1:1), never white (2.5:1 fails AA). The token values stay the same; only which token each rule uses changed. Everything else (wordmark/badge PNGs, favicons, app icons, social, print, email signature) keeps the standard roles above. Do not "fix" the website back.
 - NEVER use pure `#000000` — always `#18181A`.
 - Current production orange is `#D94B00` (a mellow safety orange). The earlier brighter `#F04E00` / `#FF6A00` are superseded — do not reintroduce them, and keep `--orange` consistent across index, faqs, privacy, and reviews.
 
@@ -66,23 +67,23 @@ body, p, a, button, input, label, li { font-family: 'Work Sans', sans-serif; }
 ---
 
 ## Website Direction — DARK PRIMARY
-The site uses a **dark-primary** design: matte black hero, mellow safety-orange action colour, amber supporting accents, cream/white content sections.
+The site uses a **dark-primary** design: matte black hero, amber action colour, safety-orange supporting accents (roles swapped on the website — see the exception under Brand Colours), cream/white content sections.
 
 ```css
 /* Hero / nav / dark sections */
 .hero, nav, .dark-section  { background: #18181A; color: #FFFFFF; }
-/* Orange rule under nav (use the token, not a hard-coded hex) */
-nav                         { border-bottom: 2px solid var(--orange); }
-/* CTA buttons (orange = action) */
-.btn-primary                { background: #D94B00; color: #FFFFFF; }
+/* Amber rule under nav (use the token, not a hard-coded hex) */
+nav                         { border-bottom: 2px solid var(--amber); }
+/* CTA buttons (website: amber = action, black text for AA) */
+.btn-primary                { background: var(--amber); color: var(--black); }
 .btn-secondary              { border: 1px solid #FFFFFF; color: #FFFFFF; background: transparent; }
-/* Orange accent on key words */
-.accent                     { color: #D94B00; }
-/* Amber accent — eyebrows, icons, ticks, stars, compliance */
-.accent-amber               { color: #F5871F; }
+/* Amber accent on key words */
+.accent                     { color: var(--amber); }
+/* Orange accent — eyebrows, icons, ticks, stars, compliance */
+.accent-orange              { color: var(--orange); }
 /* Stats strip */
 .stats-strip                { background: #3A3A3C; }
-.stat-number                { color: #D94B00; }
+.stat-number                { color: var(--amber); }
 /* Cream/light content sections */
 .light-section              { background: #F5F0EB; color: #18181A; }
 /* Body text in dark sections */
@@ -121,7 +122,7 @@ nav                         { border-bottom: 2px solid var(--orange); }
 5. Keep `--orange`/`--amber` identical across every page (index, faqs, privacy, reviews). Reference the CSS token — never hard-code the hex in a rule.
 6. Logo height in nav: 40–50px tall. Never below 36px. All favicon files sit in site root `/`.
 7. Verify **WCAG AA contrast** (4.5:1) before committing any CSS.
-8. Always show a **diff and local preview** before committing.
+8. Always show a **diff and local preview (screenshots) and wait for the user's OK** before committing or pushing. Never commit/push first and show the preview after.
 9. Commit message format: `"Brand: [short description]"`
 10. After push: GitHub Pages builds in ~60s. Confirm build.
 
@@ -146,6 +147,13 @@ nav                         { border-bottom: 2px solid var(--orange); }
 
 | Date       | Change                                                                              |
 |------------|--------------------------------------------------------------------------------------|
+| 2026-10-17 | **Polishing gallery + booking photo:** three polished-truck photos (white Kenworth tipper, green Kenworth front and side) added under the before/afters in Results; race-car transporter photo added under the booking bullets. Cropped (people in background removed), EXIF stripped, no colour edits. Rule 8 tightened: preview and wait for the user's OK before any commit/push. |
+| 2026-10-17 | **Before/after Results section** added under the hero (side-loader waste truck, Western Star prime mover). Photos in `/assets/results/`: cropped to 4:5, number plate blurred, EXIF/GPS stripped, identical light contrast on before and after (never edit one more than the other), WebP 480/800 + JPEG fallback, lazy-loaded with explicit dimensions. |
+| 2026-10-17 | **Free trial no longer advertised** (offered case-by-case to eligible customers only) — removed from FAQs page copy, meta and CTA; pricing answer now points to a quote. **Full detailing** positioned as the better-value option; interior-only / exterior-only still available. Don't re-add public free-trial offers. |
+| 2026-10-17 | **Water & wastewater wording corrected:** we normally use the customer's yard water; bringing our own water and wastewater capture & disposal are both charged on the invoice when needed. Wastewater capture moved to Add-ons; hero cue now "Wastewater capture available"; new FAQ "Do you capture the wastewater?". Don't claim water is always supplied or capture is always included. |
+| 2026-10-17 | **Services reorganised:** 3 core services (Fleet wash, Full detailing inside & out, Aluminium polishing — both new) as cards, plus a compact Add-ons list (engine & radiator degrease, underbody, interior wipe & vacuum, trailer inside, ceramic sealant). JSON-LD offer catalog, FAQs and llms.txt updated to match. Core cards are ready to take photos/video later. |
+| 2026-10-17 | **Design review fixes (web-design-guidelines / frontend-design / design-critique):** homepage carousels → static grids (all 8 services + 3 reviews visible); forced scroll-snap removed; quote form cut to 4 required fields + optional email with visible labels, autocomplete and inline errors, button "Get My Fleet Quote"; hidden `display:none` keyword block removed (SEO spam risk) and replaced with a visible Service Area section; contact section gets a CTA. All pages: `--muted` `#888` → `#A3A3A3` (6.3:1 on surface), visible `:focus-visible` rings, skip link, `color-scheme: dark`, balanced headings, no `transition: all`. |
+| 2026-10-17 | **Website colour roles swapped:** amber is now the action colour (CTAs, buttons, text logo, nav rule, `.accent`, mobile call bar) and orange the supporting accent (eyebrows, icons, ticks, stars) on index, faqs, privacy, reviews. Nav "Book Now" text changed white → black for AA on amber. Brand assets, print and email unchanged. |
 | 2026-08-24 | **Amber accent `#F5871F` added** as a two-tone warm system (orange = action, amber = supporting accents/icons/stars/compliance), applied across index, faqs, privacy, reviews. Homepage: enhanced eco card to **bunding + wastewater capture & disposal**; subtle **"fully insured — public liability"** cues; **"biggest fleet-washing challenge"** dropdown on the booking form; top-right nav with **Reviews**. Recorded current production orange as **`#D94B00`** (mellow) and standardised the nav underline + faqs/privacy to it (they were still on the old `#F04E00`). |
 | 2026-06-10 | v2 — app icons & social avatars regen from master badge; Operations Manager added to Harry's sig; business card & letterhead templates; UI rules added |
 | 2026-06-09 | PREMIUM UPGRADE — original bright `#F04E00` orange (since softened to `#D94B00`), wordmark with rule, vector badge, dark website, business card, email sig, letterhead |
