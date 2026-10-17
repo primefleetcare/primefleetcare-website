@@ -122,7 +122,7 @@ nav                         { border-bottom: 2px solid var(--amber); }
 5. Keep `--orange`/`--amber` identical across every page (index, faqs, privacy, reviews). Reference the CSS token — never hard-code the hex in a rule.
 6. Logo height in nav: 40–50px tall. Never below 36px. All favicon files sit in site root `/`.
 7. Verify **WCAG AA contrast** (4.5:1) before committing any CSS.
-8. Always show a **diff and local preview** before committing.
+8. Always show a **diff and local preview (screenshots) and wait for the user's OK** before committing or pushing. Never commit/push first and show the preview after.
 9. Commit message format: `"Brand: [short description]"`
 10. After push: GitHub Pages builds in ~60s. Confirm build.
 
@@ -147,6 +147,7 @@ nav                         { border-bottom: 2px solid var(--amber); }
 
 | Date       | Change                                                                              |
 |------------|--------------------------------------------------------------------------------------|
+| 2026-10-17 | **Polishing gallery + booking photo:** three polished-truck photos (white Kenworth tipper, green Kenworth front and side) added under the before/afters in Results; race-car transporter photo added under the booking bullets. Cropped (people in background removed), EXIF stripped, no colour edits. Rule 8 tightened: preview and wait for the user's OK before any commit/push. |
 | 2026-10-17 | **Before/after Results section** added under the hero (side-loader waste truck, Western Star prime mover). Photos in `/assets/results/`: cropped to 4:5, number plate blurred, EXIF/GPS stripped, identical light contrast on before and after (never edit one more than the other), WebP 480/800 + JPEG fallback, lazy-loaded with explicit dimensions. |
 | 2026-10-17 | **Free trial no longer advertised** (offered case-by-case to eligible customers only) — removed from FAQs page copy, meta and CTA; pricing answer now points to a quote. **Full detailing** positioned as the better-value option; interior-only / exterior-only still available. Don't re-add public free-trial offers. |
 | 2026-10-17 | **Water & wastewater wording corrected:** we normally use the customer's yard water; bringing our own water and wastewater capture & disposal are both charged on the invoice when needed. Wastewater capture moved to Add-ons; hero cue now "Wastewater capture available"; new FAQ "Do you capture the wastewater?". Don't claim water is always supplied or capture is always included. |
