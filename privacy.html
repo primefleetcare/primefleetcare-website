@@ -21,7 +21,7 @@
 <style>
   :root {
     --orange: #D94B00; --orange-dark: #B83E00; --amber: #F5871F; --amber-dark: #D5720F; --black: #18181A; --surface: #222224;
-    --border: #2C2C2E; --text: #E8E8E8; --muted: #888; --white: #fff;
+    --border: #2C2C2E; --text: #E8E8E8; --muted: #A3A3A3; --white: #fff;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -57,9 +57,17 @@
   .footer-logo-text { font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 1rem; color: var(--amber); text-transform: uppercase; letter-spacing: .02em; }
   .footer-meta { font-size: .78rem; color: var(--muted); }
   .footer-meta a:hover { color: var(--amber); }
+
+  /* ── Accessibility & polish ── */
+  html { color-scheme: dark; }
+  h1, h2, h3 { text-wrap: balance; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .skip-link { position: absolute; left: 16px; top: -48px; z-index: 300; background: var(--amber); color: var(--black); font-weight: 600; font-size: .85rem; padding: 10px 18px; border-radius: 100px; transition: top .15s; }
+  .skip-link:focus { top: 12px; }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <div class="top-bar">
   <div class="top-bar-inner">
@@ -88,7 +96,7 @@
   </div>
 </div>
 
-<main class="page">
+<main id="main" class="page">
   <div class="container">
     <div class="legal">
       <div class="eyebrow">Legal</div>
