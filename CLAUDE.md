@@ -26,6 +26,7 @@
 **Critical rules:**
 - Two warm accents ONLY — Safety Orange `#D94B00` and Amber `#F5871F`. NEVER introduce blue, green, or any other hue.
 - Keep their roles distinct: **orange = action/brand** (CTAs, buttons, logo, nav underline, `.accent` heading highlights, mobile call bar); **amber = supporting detail** (eyebrows/section tags, all line icons, tick marks, review stars, compliance + insurance). Do NOT use amber on buttons/CTAs.
+- **WEBSITE EXCEPTION (2026-10-17): on the website the roles are swapped.** On index, faqs, privacy and reviews, **amber = action** (CTAs, buttons, text logo, nav underline, `.accent` highlights, mobile call bar, carousel dots) and **orange = supporting detail** (eyebrows, line icons, ticks, stars, compliance cues). Text on amber buttons is `var(--black)` (7.1:1), never white (2.5:1 fails AA). The token values stay the same; only which token each rule uses changed. Everything else (wordmark/badge PNGs, favicons, app icons, social, print, email signature) keeps the standard roles above. Do not "fix" the website back.
 - NEVER use pure `#000000` — always `#18181A`.
 - Current production orange is `#D94B00` (a mellow safety orange). The earlier brighter `#F04E00` / `#FF6A00` are superseded — do not reintroduce them, and keep `--orange` consistent across index, faqs, privacy, and reviews.
 
@@ -66,23 +67,23 @@ body, p, a, button, input, label, li { font-family: 'Work Sans', sans-serif; }
 ---
 
 ## Website Direction — DARK PRIMARY
-The site uses a **dark-primary** design: matte black hero, mellow safety-orange action colour, amber supporting accents, cream/white content sections.
+The site uses a **dark-primary** design: matte black hero, amber action colour, safety-orange supporting accents (roles swapped on the website — see the exception under Brand Colours), cream/white content sections.
 
 ```css
 /* Hero / nav / dark sections */
 .hero, nav, .dark-section  { background: #18181A; color: #FFFFFF; }
-/* Orange rule under nav (use the token, not a hard-coded hex) */
-nav                         { border-bottom: 2px solid var(--orange); }
-/* CTA buttons (orange = action) */
-.btn-primary                { background: #D94B00; color: #FFFFFF; }
+/* Amber rule under nav (use the token, not a hard-coded hex) */
+nav                         { border-bottom: 2px solid var(--amber); }
+/* CTA buttons (website: amber = action, black text for AA) */
+.btn-primary                { background: var(--amber); color: var(--black); }
 .btn-secondary              { border: 1px solid #FFFFFF; color: #FFFFFF; background: transparent; }
-/* Orange accent on key words */
-.accent                     { color: #D94B00; }
-/* Amber accent — eyebrows, icons, ticks, stars, compliance */
-.accent-amber               { color: #F5871F; }
+/* Amber accent on key words */
+.accent                     { color: var(--amber); }
+/* Orange accent — eyebrows, icons, ticks, stars, compliance */
+.accent-orange              { color: var(--orange); }
 /* Stats strip */
 .stats-strip                { background: #3A3A3C; }
-.stat-number                { color: #D94B00; }
+.stat-number                { color: var(--amber); }
 /* Cream/light content sections */
 .light-section              { background: #F5F0EB; color: #18181A; }
 /* Body text in dark sections */
@@ -146,6 +147,7 @@ nav                         { border-bottom: 2px solid var(--orange); }
 
 | Date       | Change                                                                              |
 |------------|--------------------------------------------------------------------------------------|
+| 2026-10-17 | **Website colour roles swapped:** amber is now the action colour (CTAs, buttons, text logo, nav rule, `.accent`, mobile call bar) and orange the supporting accent (eyebrows, icons, ticks, stars) on index, faqs, privacy, reviews. Nav "Book Now" text changed white → black for AA on amber. Brand assets, print and email unchanged. |
 | 2026-08-24 | **Amber accent `#F5871F` added** as a two-tone warm system (orange = action, amber = supporting accents/icons/stars/compliance), applied across index, faqs, privacy, reviews. Homepage: enhanced eco card to **bunding + wastewater capture & disposal**; subtle **"fully insured — public liability"** cues; **"biggest fleet-washing challenge"** dropdown on the booking form; top-right nav with **Reviews**. Recorded current production orange as **`#D94B00`** (mellow) and standardised the nav underline + faqs/privacy to it (they were still on the old `#F04E00`). |
 | 2026-06-10 | v2 — app icons & social avatars regen from master badge; Operations Manager added to Harry's sig; business card & letterhead templates; UI rules added |
 | 2026-06-09 | PREMIUM UPGRADE — original bright `#F04E00` orange (since softened to `#D94B00`), wordmark with rule, vector badge, dark website, business card, email sig, letterhead |
