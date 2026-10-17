@@ -581,6 +581,15 @@
   .step h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; letter-spacing: -.01em; }
   .step p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
 
+  /* ── RESULTS (before / after) ── */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+  .ba-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; border-radius: 6px; overflow: hidden; }
+  .ba-shot { position: relative; background: var(--surface); }
+  .ba-shot img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+  .ba-tag { position: absolute; left: 10px; top: 10px; font-size: .72rem; font-weight: 600; letter-spacing: .02em; padding: 4px 10px; border-radius: 100px; background: rgba(24,24,26,.85); color: var(--text); }
+  .ba-tag.ba-after { color: var(--amber); }
+  .ba figcaption { margin-top: 12px; font-size: .875rem; color: var(--muted); }
+
   /* ── SERVICES ── */
   .svc-core {
     display: grid;
@@ -811,6 +820,7 @@
     .steps { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
     .svc-core { grid-template-columns: 1fr; }
+    .ba-grid { grid-template-columns: 1fr; }
     .addon-list { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .contact-strip { flex-direction: column; }
@@ -921,6 +931,57 @@
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Fully insured</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5S5 9 5 14a7 7 0 0 0 14 0c0-5-7-11.5-7-11.5z"/></svg>Wastewater capture available</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Perth-owned &amp; operated</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RESULTS -->
+<section id="results" aria-labelledby="results-heading">
+  <div class="container">
+    <span class="section-tag">Results</span>
+    <h2 class="section-title" id="results-heading">See the difference.</h2>
+    <p class="section-sub">Before and after shots from real jobs around Perth.</p>
+    <div class="ba-grid">
+      <figure class="ba">
+        <div class="ba-pair">
+          <div class="ba-shot">
+            <picture>
+              <source type="image/webp" srcset="/assets/results/waste-before-480.webp 480w, /assets/results/waste-before-800.webp 800w" sizes="(max-width: 820px) 46vw, 250px">
+              <img src="/assets/results/waste-before-800.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Waste truck before the wash: dust on the cab and grime on the aluminium fuel tanks">
+            </picture>
+            <span class="ba-tag">Before</span>
+          </div>
+          <div class="ba-shot">
+            <picture>
+              <source type="image/webp" srcset="/assets/results/waste-after-480.webp 480w, /assets/results/waste-after-800.webp 800w" sizes="(max-width: 820px) 46vw, 250px">
+              <img src="/assets/results/waste-after-800.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="The same waste truck after the wash: clean white cab, tanks and wheels">
+            </picture>
+            <span class="ba-tag ba-after">After</span>
+          </div>
+        </div>
+        <figcaption>Side-loader waste truck</figcaption>
+      </figure>
+      <figure class="ba">
+        <div class="ba-pair">
+          <div class="ba-shot">
+            <picture>
+              <source type="image/webp" srcset="/assets/results/prime-before-480.webp 480w, /assets/results/prime-before-800.webp 800w" sizes="(max-width: 820px) 46vw, 250px">
+              <img src="/assets/results/prime-before-800.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Western Star prime mover before the wash, covered in road dust">
+            </picture>
+            <span class="ba-tag">Before</span>
+          </div>
+          <div class="ba-shot">
+            <picture>
+              <source type="image/webp" srcset="/assets/results/prime-after-480.webp 480w, /assets/results/prime-after-800.webp 800w" sizes="(max-width: 820px) 46vw, 250px">
+              <img src="/assets/results/prime-after-800.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="The same Western Star after the wash, with gleaming bullbar, tanks and wheels">
+            </picture>
+            <span class="ba-tag ba-after">After</span>
+          </div>
+        </div>
+        <figcaption>Western Star prime mover</figcaption>
+      </figure>
     </div>
   </div>
 </section>
